@@ -1,0 +1,63 @@
+name: Collect & Deploy
+
+on:
+  schedule:
+    # 00:00 UTC = 北京时间 08:00，GitHub Actions cron 可能有十几分钟延迟属正常
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'css/**'
+      - 'js/**'
+      - 'data/inbox/**'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Collect news
+        run: python scripts/collect_news.py
+
+      - name: Commit fresh data
+        run: |
+          git config user.name "news-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/news.json
+          git diff --staged --quiet || git commit -m "chore: update news data $(date -u +%F) [skip ci]"
+          git push || true
+
+      - name: Prepare publish folder
+        run: |
+          mkdir -p _site
+          cp -r index.html css js data .nojekyll _site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
