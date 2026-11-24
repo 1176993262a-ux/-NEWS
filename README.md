@@ -1,174 +1,149 @@
-# 家纺情报站
+# 家纺情报站 V2.0
 
-床品行业每日情报面板 —— 为家纺产品经理打造的信息聚合工具。
+产品经理视角的床品行业情报面板：行业资讯、家纺标准、品牌上新、市场数据、产品创新机会一站式追踪。纯静态站点（GitHub Pages）+ GitHub Actions 定时采集，无后台服务器，链接即可访问。
 
-覆盖 8 个核心信息源，按「全球品牌 / 床品创新 / 国内行业 / 全球趋势 / 供应链 / 材料技术 / 未来趋势 / 消费者洞察」八个维度组织，支撑每周情报扫描与展会季深度跟踪。
+## 访问方式
 
-## 快速开始
+仓库开启 GitHub Pages（Source: GitHub Actions）后，访问：
 
-直接双击打开 `index.html` 即可浏览（内置示例数据）。
+```
+https://1176993262a-ux.github.io/-NEWS/
+```
+
+## 页面模块
+
+| 页面 | 文件 | 数据 | 更新频率 |
+|------|------|------|----------|
+| 情报首页（资讯流＋收藏） | `index.html` | `data/news.json` | 每日 08:00（北京时间） |
+| 家纺标准库 | `standards.html` | `data/standards.json` | 每周核验（实际每日可跑） |
+| 品牌上新 | `brands.html` | `data/brand_products.json` | 每日 08:00 |
+| 市场数据 | `market.html` | `data/market_metrics.json` | 导入驱动 / 公开报告自动收录 |
+| 创新机会 | `insights.html` | 聚合以上四类数据 | 随数据更新 |
+
+所有页面共享深色/浅色主题（记忆在浏览器 localStorage）、手机端响应式布局、示例数据醒目标记。
+
+## 信息源与采集策略
+
+| 信息源 | 关注问题 |
+|--------|----------|
+| Home Textiles Today / Bedding News Now | 全球新品牌、新产品、床品细分创新 |
+| 中家纺 | 国内行业、企业、标准动态 |
+| Heimtextil / Intertextile | 全球趋势、新材料、供应链 |
+| ADVANSA / Lenzing / HeiQ | 新材料、新技术 |
+| WGSN | 未来消费和设计趋势 |
+| 小红书（inbox 手工/半自动导入） | 消费者真实需求、新品牌 |
+
+采集脚本 `scripts/collect_news.py`：RSS 解析 + 列表页链接抽取 + inbox 文件合并 + 去重合并，可选接 LLM 做中文摘要。已增量优化：
+
+- 排除招聘/广告/推广等无关内容（BAD_KEYWORDS）
+- 每条记录带 `source_url / published_at / collected_at / source_type / verification_status`，旧数据缺字段自动补默认值
+- 写盘前备份 `data/news.json.bak`，写盘失败保留旧文件
+- 单数据源异常被 try/except 隔离，不阻断其他源与部署
+
+## 模块一：家纺标准与技术资料库（`standards.html`）
+
+收录 8 项床上用品相关国家标准，均从**国家标准全文公开系统**（openstd.samr.gov.cn）核验：
+
+- GB 18401-2010《国家纺织产品基本安全技术规范》
+- GB 31701-2015《婴幼儿及儿童纺织产品安全技术规范》
+- GB/T 22796-2021《床上用品》
+- GB/T 22864-2020《毛巾》
+- GB/T 8685-2008《纺织品 维护标签规范 符号法》
+- GB/T 46396-2025《家用纺织品保暖性能要求与测试方法》
+- GB/T 29862-2013《纺织品 纤维含量的标识》（现行，将被 2026 版替代）
+- GB/T 29862-2026《纺织品纤维含量标识技术规范》（即将实施，2027-08-01 实施）
+
+每条记录含：标准编号、名称、类型、发布机构、发布/实施日期、当前状态、替代关系、适用品类、检测项目、开发应用建议、官方链接、核验日期。
+
+- 按四件套 / 枕芯 / 被芯 / 毛浴巾 / 儿童床品筛选，支持标准号与关键词搜索
+- 状态明确区分：**现行 / 即将实施 / 旧版 / 征求意见 / 待核验**
+- 「最新标准变化」面板：自动汇总即将实施标准、替代关系、待核验项与核验脚本产出变化日志
+- 官方原文跳转国家标准全文公开系统；**不复制、不分发受版权保护的标准全文**
+- 具体技术指标无原文依据时显示「待核验」，绝不自行编造
+
+核验脚本 `scripts/verify_standards.py`（每周 cron，也可本地运行）：按标准号在官方搜索表精确匹配，再抓详情页补全名称/日期/替代关系；仅在官方页面可明确解析时更新，无法确认保留原值；写盘前备份。
+
+## 模块二：国内外品牌新品数据库（`brands.html`）
+
+首批监控 17 个品牌（国内 8 + 国际 9）：罗莱、水星家纺、富安娜、梦洁、博洋、亚朵星球、网易严选、8H；IKEA、MUJI、NITORI、Zara Home、H&M HOME、Brooklinen、Parachute、Quince、Bed Threads。覆盖四件套、被芯、枕芯、床笠、床垫、毛毯、毛浴巾、功能家纺。
+
+- 品牌 / 地域 / 品类 / 价格带筛选与关键词搜索
+- 产品卡片：图片、名称、面料、填充、工艺、卖点、原始商品链接
+- **新品类型识别**：🆕 真正新品 / 🎨 换色换花型 / ♻️ 旧品改版 / 🔁 重新上架（基于页面快照对比 + 名称相似度）
+- 跨品牌对比面板：相同品类下各品牌的材料/工艺/卖点共性与差异
+- **没有官方上市时间 → 记录为 null，显示「官方未公布」，绝不把首次采集时间当上市日期**
+- 来源页面采集失败时保留历史数据并更新展示时间
+- 只访问公开页面，**不绕过登录、验证码或反爬**
+
+采集脚本 `scripts/collect_brand_products.py`（每日 cron）：品牌官网优先，发现商品链接后按名称归入监测品类，与上轮快照（`data/snapshots/brand_<id>.json`）对比识别新品；单品牌异常隔离；官网未配置的品牌跳过（不视为失败，等待人工核验地址）。商品详情字段（材质/填充等）除非页面公开可得，否则留空待核验，不编造。
+
+## 模块三：市场与销售数据（`market.html`）
+
+覆盖京东、天猫/淘宝、抖音、小红书与公开行业报告。每项指标必含：平台、主体类型与名称、统计时间范围、指标名、数值、单位、数据来源、数据类型、统计口径、采集时间、来源链接。
+
+- **数据类型五类**：官方披露 / 授权后台数据 / 第三方估算 / 公开商品信息 / 人工录入（页面图例清晰标注）
+- GMV、支付金额、成交件数、销量区间、搜索指数、销售排名**严格分开记录**，易混指标必须填统计口径
+- 第三方估算必须保留估算标签（estimate_note）与原始统计区间
+- **无权限交易数据不自动生成；未授权渠道保留空状态，不用假数据填充**——当前为空是真实状态
+- CSV 导入适配器：页面端解析校验 → 下载规范化 JSON → `scripts/import_market_data.py` 合并入库
+- 按平台 / 数据类型 / 区间筛选，SVG 柱状图看同一指标按月变化
+
+## 模块四：产品创新机会（`insights.html`）
+
+自动关联标准合规、品牌上新、市场数据、消费者需求四类记录，按品类输出：
+
+- 近期热门材料、工艺及功能
+- 品牌新品的共性和差异
+- 有证据支持的消费者需求
+- 可以验证的价格带机会（需市场数据支持）
+- 潜在产品开发方向
+
+每条结论区分 **📌 事实 / 🧠 推断 / 💡 建议**，带溯源链接回到原始记录。**数据不足时显示空状态与证据缺口，不强行计算机会评分**；示例数据不作为推断依据。
+
+## 本地运行
+
+```bash
+# 本地预览站点（任一均可）
+python -m http.server 8000
+# 浏览器打开 http://localhost:8000
+
+# 手动触发采集（可选 LLM 摘要环境变量见脚本头部）
+python scripts/collect_news.py
+python scripts/collect_brand_products.py
+python scripts/verify_standards.py
+python scripts/import_market_data.py your_file.csv
+```
+
+## 数据与合规红线
+
+1. 所有内容真实可追溯，禁止虚构品牌上新、销售额、增长率或国家标准条款
+2. 具体技术指标无原文依据 → 「待核验」
+3. 示例数据（`is_demo: true`）与真实数据明显区分，生产环境不冒充真实新闻
+4. 公开仓库：禁止上传商家后台敏感原始报表、未获公开许可的付费数据、API 密钥
+5. 对受访问限制的平台，只实现合法接入/导入工具，不执行无凭据抓取
+6. 自动采集异常不丢数据：写盘前备份 + 临时文件替换 + 单源异常隔离
 
 ## 目录结构
 
 ```
-├── index.html              # 情报站主页面
-├── css/style.css           # 样式（含深色模式）
-├── js/data.js              # 信息源配置 + 示例数据 + 数据加载
-├── js/app.js               # 页面交互（筛选/搜索/收藏/已读/主题）
-├── data/
-│   ├── news.json           # 采集脚本生成的实时数据（自动加载）
-│   └── inbox/              # 小红书等需手动导入的数据
+├── index.html / standards.html / brands.html / market.html / insights.html
+├── css/style.css                # 全站样式（含深色模式与 V2.0 模块样式）
+├── js/
+│   ├── common.js                # 主题/导航/toast/存储/取数/示例与核验徽章
+│   ├── data.js                  # 信息源、分类、示例资讯
+│   ├── app.js                   # 首页资讯流逻辑
+│   ├── standards.js             # 标准库筛选/搜索/变化面板
+│   ├── brands.js                # 品牌上新筛选/卡片/对比
+│   ├── market.js                # 市场数据表格/SVG 图/CSV 导入
+│   └── insights.js              # 创新机会事实/推断/建议生成
 ├── scripts/
-│   └── collect_news.py     # 每日采集脚本
-└── README.md
+│   ├── collect_news.py          # 每日资讯采集
+│   ├── collect_brand_products.py# 每日品牌新品巡检
+│   ├── verify_standards.py      # 每周标准核验
+│   └── import_market_data.py    # 市场数据 CSV/JSON 导入适配器
+├── data/
+│   ├── news.json / standards.json / brand_products.json / market_metrics.json
+│   ├── inbox/                   # 小红书等手工/半自动导入
+│   └── snapshots/               # 品牌页面快照（新品对比用，自动生成）
+└── .github/workflows/collect-and-deploy.yml
 ```
-
-## 数据采集
-
-### 运行采集
-
-```bash
-python scripts/collect_news.py
-```
-
-脚本会依次抓取各信息源，合并去重后写入 `data/news.json`，刷新页面自动生效。
-
-常用参数：
-
-```bash
-python scripts/collect_news.py --source htt bnn   # 只采集指定源
-python scripts/collect_news.py --dry-run          # 试跑不写盘
-```
-
-### 各信息源采集方式
-
-| 信息源 | 方式 | 说明 |
-|---|---|---|
-| Home Textiles Today | RSS | `https://hometextilestoday.com/feed/` |
-| Bedding News Now | RSS | `https://beddingnewsnow.com/feed/` |
-| 中家纺 | 网页抽取 | 列表页 `<a>` 关键词过滤 |
-| Heimtextil | 网页抽取 | 新闻/趋势页 |
-| Intertextile | 网页抽取 | 新闻中心页 |
-| ADVANSA/Lenzing/HeiQ | RSS + 网页 | Lenzing、HeiQ 走 RSS，ADVANSA 走网页 |
-| WGSN | 网页抽取 | 博客/趋势页 |
-| 小红书 | inbox 导入 | 见下文 |
-
-### 小红书数据导入
-
-小红书有较强反爬与合规限制，采用手动/半自动导入：
-
-1. 在小红书搜索核心关键词（如「四件套」「水洗棉」「酒店同款床品」）
-2. 挑选高互动笔记，按格式整理为 JSON 放入 `data/inbox/`
-3. 采集脚本会自动读取合并
-
-格式示例见 `data/inbox/xhs_sample.json`：
-
-```json
-[
-  {
-    "date": "2026-11-23",
-    "title": "笔记标题或趋势总结",
-    "summary": "核心发现：消费者诉求、价格带、场景",
-    "tags": ["标签1", "标签2"],
-    "url": "https://www.xiaohongshu.com/..."
-  }
-]
-```
-
-### 可选：LLM 翻译与摘要
-
-海外源标题/摘要默认保留原文。设置以下环境变量即可启用 LLM 自动翻译与摘要：
-
-```bash
-set HT_LLM_ENDPOINT=https://your-llm-api/chat    # 接口需返回 {"result": "..."}
-set HT_LLM_TOKEN=your-token                       # 可选 Bearer Token
-```
-
-### 海外站点代理
-
-```bash
-set HT_HTTP_PROXY=http://127.0.0.1:7890
-```
-
-## 每日自动运行（Windows 计划任务）
-
-```powershell
-# 每天 08:00 自动采集, 记录日志
-schtasks /create /tn "家纺情报站每日采集" /tr "pythonw C:\...\scripts\collect_news.py" /sc daily /st 08:00
-```
-
-## 功能说明
-
-- **来源筛选**：顶部导航按信息源一键过滤，显示各源条数
-- **分类筛选**：八大分类维度切换
-- **全文搜索**：标题/摘要/标签即时搜索
-- **收藏**：点击 ☆ 收藏，侧栏「我的收藏」集中管理（本地持久化）
-- **已读标记**：点击卡片自动标记已读并降低透明度
-- **深色模式**：右上角切换，本地记忆
-- **数据来源标识**：每次加载明确显示当前是实时数据还是示例数据
-
----
-
-# 部署为公开网站
-
-网站已配置为 GitHub Pages + GitHub Actions 架构：Pages 负责免费公开托管，Actions 负责每天北京时间早 8 点自动采集数据。无需服务器，无需安装任何软件。
-
-## 部署步骤（约 5 分钟）
-
-**第 1 步：创建 GitHub 仓库**
-
-1. 登录 [github.com](https://github.com)（没有账号就注册一个，免费）
-2. 点击右上角 "+" → "New repository"
-3. 仓库名随意，例如 `bedding-intel`，选择 **Public**，点击 "Create repository"
-
-**第 2 步：上传项目文件**
-
-1. 在新仓库页面，点击 "uploading an existing file" 链接
-2. 将本项目的全部文件（连同文件夹）拖入上传区：
-   - `index.html`、`css/`、`js/`、`data/`、`scripts/`、`.github/`、`.nojekyll`、`README.md`
-   - 注意：`.github/workflows/collect-and-deploy.yml` 必须上传，这是自动采集与部署的核心配置
-3. 提交信息随便填，点击 "Commit changes"
-
-**第 3 步：启用 GitHub Pages**
-
-1. 进入仓库 Settings → Pages
-2. "Build and deployment" 下的 Source 选择 **GitHub Actions**
-3. 保存即可
-
-**第 4 步：触发首次部署**
-
-1. 进入仓库 Actions 标签页，会看到 "Collect & Deploy" 工作流
-2. 点击右侧 "Run workflow" → "Run workflow" 手动触发一次
-3. 等待绿色对勾出现后，回到 Actions → "github-pages" 环境，或仓库首页右侧 "Deployments" 可看到链接
-4. 公开访问地址格式为 `https://你的用户名.github.io/仓库名/`
-
-此后每天早 8 点自动采集；你也可以随时在 Actions 页面手动 "Run workflow" 立即更新。
-
-## 每天更新的小红书数据怎么加
-
-小红书无法自动抓取（反爬限制），但可以通过 GitHub 网页随时补充：
-
-1. 在 GitHub 仓库中打开 `data/inbox/`，点击 "Add file" → "Create new file"
-2. 命名如 `xhs_week.json`，粘贴以下格式的笔记发现：
-
-```json
-[
-  {
-    "date": "2026-11-24",
-    "title": "趋势或笔记总结",
-    "summary": "核心发现",
-    "tags": ["标签"],
-    "url": "https://www.xiaohongshu.com/..."
-  }
-]
-```
-
-3. Commit 后，工作流自动触发并部署，情报即上线
-
-## 自定义域名（可选）
-
-如果你想用 `intel.yourdomain.com` 这类地址：仓库 Settings → Pages → "Custom domain" 填入你的域名，并在域名服务商处添加一条 CNAME 记录指向 `你的用户名.github.io`。
-
-## 国内访问说明
-
-GitHub Pages 在国内大部分地区可访问，但偶有波动。若目标读者全在国内，可考虑将仓库镜像到国内静态托管（如腾讯云 EdgeOne Pages、阿里云 OSS 静态网站），同样只需上传相同文件，只是自动采集需另行配置定时任务。

@@ -1,0 +1,52 @@
+{
+  "module": "market_metrics",
+  "description": "家纺市场与销售数据：当前 items 为空。本站只收录有授权或公开口径的数据：公开行业报告、合规榜单排名、CSV 导入的授权数据。绝不自动生成无权限的交易数据，绝不混合 GMV、支付金额、销量区间等不同口径。",
+  "generatedAt": "2026-11-23T00:00:00+08:00",
+  "platforms": ["京东", "天猫", "淘宝", "抖音", "小红书", "行业报告", "其他"],
+  "subjectTypes": [
+    { "id": "brand",    "name": "品牌" },
+    { "id": "category", "name": "品类" }
+  ],
+  "dataTypes": [
+    { "id": "official",   "name": "官方披露",   "badge": "dt-official",   "note": "品牌财报、平台官方公告等公开披露数据" },
+    { "id": "authorized", "name": "授权后台数据", "badge": "dt-authorized", "note": "经授权的商家后台数据，禁止上传敏感原始报表到公开仓库" },
+    { "id": "estimate",   "name": "第三方估算",  "badge": "dt-estimate",   "note": "必须保留估算标签与原始统计区间，不得当作事实呈现" },
+    { "id": "public",     "name": "公开商品信息", "badge": "dt-public",     "note": "商品页面公开的价格、评价数等可合规采集信息" },
+    { "id": "manual",     "name": "人工录入",    "badge": "dt-manual",     "note": "人工整理并标注来源的指标" }
+  ],
+  "fields": [
+    { "key": "id",            "cn": "记录ID" },
+    { "key": "platform",      "cn": "平台" },
+    { "key": "subject_type",  "cn": "主体类型",   "note": "brand / category" },
+    { "key": "subject",       "cn": "品牌/品类" },
+    { "key": "period_start",  "cn": "统计起始日期" },
+    { "key": "period_end",    "cn": "统计截止日期" },
+    { "key": "period_label",  "cn": "统计区间标签", "note": "如 2026-10、2026Q3" },
+    { "key": "metric_name",   "cn": "指标名称" },
+    { "key": "value",         "cn": "数值" },
+    { "key": "unit",          "cn": "单位" },
+    { "key": "data_source",   "cn": "数据来源" },
+    { "key": "data_type",     "cn": "数据类型",   "note": "official/authorized/estimate/public/manual" },
+    { "key": "caliber",       "cn": "统计口径",   "note": "说明该数值如何统计，避免口径混用" },
+    { "key": "estimate_note", "cn": "估算标签",   "note": "第三方估算必须填写原始统计区间与方法说明" },
+    { "key": "source_url",    "cn": "来源链接" },
+    { "key": "collected_at",  "cn": "采集时间" },
+    { "key": "verification_status", "cn": "核验状态" },
+    { "key": "is_demo",       "cn": "示例标记",   "note": "真实数据恒为 false" }
+  ],
+  "items": [],
+  "importer": {
+    "csvRequiredHeaders": ["platform", "subject_type", "subject", "period_start", "period_end", "metric_name", "value", "unit", "data_type", "data_source", "source_url"],
+    "csvOptionalHeaders": ["period_label", "caliber", "estimate_note"],
+    "note": "页面端 CSV 导入仅做解析与预览校验，规范化结果下载为 JSON 后，经 scripts/import_market_data.py 合并入库，避免误覆盖。"
+  },
+  "policy": [
+    "没有权限获取的交易数据不得自动生成；暂未授权的数据保留空状态，不用假数据填充。",
+    "不得将 GMV、支付金额、成交件数、销量区间、搜索指数、销售排名混为一谈，不同口径必须分别记录并在 caliber 说明。",
+    "第三方估算必须保留 estimate_note 估算标签与原始统计区间。",
+    "本仓库为公开仓库：禁止上传商家后台敏感原始报表、未获公开许可的付费数据、API 密钥。"
+  ],
+  "notes": [
+    "当前 items 为空即真实状态：本环境无法联网，且暂无授权渠道数据。接入渠道后由 GitHub Actions 或导入工具填充。"
+  ]
+}

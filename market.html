@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>市场数据 · 家纺情报站</title>
+  <meta name="description" content="家纺市场与销售数据：公开行业报告、合规榜单监测、CSV 导入与指标规范化展示，不同口径严格区分">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">🛏️</div>
+        <div>
+          <h1>家纺情报站</h1>
+          <p class="brand-sub">市场与销售数据 · 严格区分口径</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="themeToggle" class="icon-btn" title="切换深色/浅色">🌙</button>
+        <span class="today-badge" id="todayBadge">📅 --</span>
+      </div>
+    </div>
+    <nav class="page-nav wrap" aria-label="模块导航">
+      <a class="page-link" href="index.html">📰 情报首页</a>
+      <a class="page-link" href="standards.html">📋 家纺标准</a>
+      <a class="page-link" href="brands.html">🏷️ 品牌上新</a>
+      <a class="page-link" href="market.html">📊 市场数据</a>
+      <a class="page-link" href="insights.html">💡 创新机会</a>
+    </nav>
+  </header>
+
+  <main class="wrap layout">
+    <div class="content">
+      <div class="page-head">
+        <h2>市场与销售数据</h2>
+        <p>覆盖京东、天猫/淘宝、抖音、小红书等渠道与公开行业报告。每项指标均标注<b>平台、主体、统计区间、指标名、数值单位、数据来源、数据类型与统计口径</b>。GMV、支付金额、成交件数、销量区间、搜索指数、销售排名<b>严格分开记录</b>，第三方估算必须保留估算标签与原始区间。未授权数据保留空状态，<b>不用假数据填充</b>。</p>
+        <p class="std-meta-row" id="marketMeta" style="margin-top:8px"></p>
+      </div>
+
+      <div id="marketDemoBanner"></div>
+
+      <div class="filter-bar" id="marketFilterBar" aria-label="平台/类型/区间筛选"></div>
+      <div style="font-size:12px;color:var(--muted);margin:10px 0 8px">共 <b id="marketCount" style="color:var(--ink)">--</b> 项指标</div>
+
+      <section class="panel" style="margin-bottom:16px">
+        <div class="panel-head">📈 按区间查看趋势 <span style="margin-left:auto;font-weight:400;font-size:12px">指标：
+          <select id="chartMetricSelect" style="font-size:12px;padding:2px 6px"></select>
+        </span></div>
+        <div class="panel-body chart-box" id="marketChart" style="padding:14px"></div>
+      </section>
+
+      <section id="metricTableWrap"></section>
+    </div>
+
+    <aside class="sidebar">
+      <section class="panel" id="marketImportPanel">
+        <div class="panel-head">📥 CSV 导入适配器</div>
+        <div class="panel-body" style="padding:14px 16px">
+          <p style="font-size:12px;color:var(--muted);margin:0 0 10px;line-height:1.7">选择 UTF-8 编码的 CSV 文件进行解析与校验，通过后将下载<b>规范化 JSON</b>，再由 <code>scripts/import_market_data.py</code> 合并入库。敏感后台报表请勿上传到本公开仓库。</p>
+          <input type="file" id="csvFileInput" accept=".csv,text/csv" style="font-size:12px;margin-bottom:10px">
+          <div id="csvPreview"></div>
+          <button id="csvDownloadBtn" style="display:none" class="open-link">⬇️ 下载规范化 JSON</button>
+        </div>
+      </section>
+
+      <section class="panel" id="marketTypePanel">
+        <div class="panel-head">🏷️ 数据类型图例</div>
+        <div class="panel-body"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">🔒 合规红线</div>
+        <div class="panel-body" style="padding:14px 16px">
+          <ul class="hint-list">
+            <li>无权限交易数据不自动生成</li>
+            <li>未授权渠道保留空状态</li>
+            <li>不同统计口径分开记录</li>
+            <li>第三方估算保留估算标签</li>
+            <li>禁止上传敏感报表/API 密钥</li>
+          </ul>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      家纺情报站 · 市场数据仅收录公开或授权口径 · 空状态即真实状态<br>
+      <a href="data/market_metrics.json">查看市场数据原始文件</a>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/market.js"></script>
+</body>
+</html>

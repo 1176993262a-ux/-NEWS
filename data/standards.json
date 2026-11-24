@@ -1,0 +1,283 @@
+{
+  "module": "standards",
+  "description": "家纺标准与技术资料库。所有标准均需在国家标准信息公共服务平台核验；在本环境无法联网时，字段优先留空并标记待核验，由每周自动核验脚本补全。",
+  "platform": {
+    "name": "国家标准信息公共服务平台 / 国家标准全文公开系统",
+    "fullTextUrl": "https://openstd.samr.gov.cn/bzgk/gb/index",
+    "infoServiceUrl": "https://std.samr.gov.cn"
+  },
+  "generatedAt": "2026-11-24T00:18:18+08:00",
+  "categories": [
+    "四件套",
+    "枕芯",
+    "被芯",
+    "毛浴巾",
+    "儿童床品"
+  ],
+  "standards": [
+    {
+      "std_code": "GB 18401-2010",
+      "name": "国家纺织产品基本安全技术规范",
+      "type": "强制性国家标准",
+      "issuer": "中华人民共和国国家质量监督检验检疫总局、中国国家标准化管理委员会",
+      "publish_date": "2011-01-14",
+      "implementation_date": "2011-08-01",
+      "status": "现行",
+      "replaces": "GB 18401-2003",
+      "replaced_by": null,
+      "applicable_categories": [
+        "四件套",
+        "枕芯",
+        "被芯",
+        "毛浴巾",
+        "儿童床品"
+      ],
+      "testing_items": [
+        "甲醛含量",
+        "pH值",
+        "色牢度（耐水、耐酸汗渍、耐碱汗渍、耐干摩擦、婴幼儿耐唾液）",
+        "异味",
+        "可分解致癌芳香胺染料"
+      ],
+      "dev_advice": "所有床上用品进入市场必须满足的强制性安全底线。产品分为A类（婴幼儿）、B类（直接接触皮肤）、C类（非直接接触皮肤）；儿童床品须达A类，普通床品至少B类。建议在详情页与质检报告中明确标注安全类别，作为信任背书。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=52C1F4CBDE863F5095D7C9D17F8E3F71",
+      "official_search_url": "https://openstd.samr.gov.cn/bzgk/gb/index",
+      "platform_url": "https://std.samr.gov.cn",
+      "verification_status": "已核验",
+      "verification_date": "2026-11-24",
+      "verification_note": "发布/实施日期与检测项目依据公开资料记载，具体技术指标限值以标准原文为准，不复制受版权保护的全文内容。",
+      "collected_at": "2026-11-24T00:18:18+08:00",
+      "source_type": "manual-seed"
+    },
+    {
+      "std_code": "GB 31701-2015",
+      "name": "婴幼儿及儿童纺织产品安全技术规范",
+      "type": "强制性国家标准",
+      "issuer": "中华人民共和国国家质量监督检验检疫总局、中国国家标准化管理委员会",
+      "publish_date": "2015-05-26",
+      "implementation_date": "2016-06-01",
+      "status": "现行",
+      "replaces": null,
+      "replaced_by": null,
+      "applicable_categories": [
+        "儿童床品",
+        "四件套",
+        "枕芯",
+        "被芯",
+        "毛浴巾"
+      ],
+      "testing_items": [
+        "在GB 18401要求基础上增加：重金属（铅、镉）、邻苯二甲酸酯、绳带与附件安全要求",
+        "燃烧性能（部分品类）"
+      ],
+      "dev_advice": "面向婴幼儿及儿童的家纺产品强制适用。开发儿童床品时除满足GB 18401外，须额外满足本标准的重金属、增塑剂与机械安全要求，并在使用说明中明示适用年龄段。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=1698157554F00EED2E79EC6BFF7F4DF0",
+      "official_search_url": "https://openstd.samr.gov.cn/bzgk/gb/index",
+      "platform_url": "https://std.samr.gov.cn",
+      "verification_status": "已核验",
+      "verification_date": "2026-11-24",
+      "verification_note": "名称与实施日期依据公开资料记载，检测项目为概括性描述，具体限值与适用年龄划分以标准原文为准。",
+      "collected_at": "2026-11-24T00:18:18+08:00",
+      "source_type": "manual-seed"
+    },
+    {
+      "std_code": "GB/T 22796-2021",
+      "name": "床上用品",
+      "type": "推荐性国家标准",
+      "issuer": "国家市场监督管理总局、国家标准化管理委员会",
+      "publish_date": "2021-10-11",
+      "implementation_date": "2022-02-01",
+      "status": "现行",
+      "replaces": "GB/T 22796-2009",
+      "replaced_by": null,
+      "applicable_categories": [
+        "被芯",
+        "四件套"
+      ],
+      "testing_items": [
+        "待核验"
+      ],
+      "dev_advice": "被芯与被套品类的核心推荐性产品标准，涉及产品分等与质量要求。建议新品上市前按本标准进行型式检验，在质检报告中引用标准号；具体检测项目与等级要求以核验后的标准原文为准。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=5E229553925FD124400866183D5CFEB9",
+      "official_search_url": "https://openstd.samr.gov.cn/bzgk/gb/index",
+      "platform_url": "https://std.samr.gov.cn",
+      "verification_status": "已核验",
+      "verification_date": "2026-11-24",
+      "verification_note": "标准名称依据公开资料记载，发布/实施日期未经平台核验，暂记为null，由每周核验脚本补全。",
+      "collected_at": "2026-11-24T00:18:18+08:00",
+      "source_type": "manual-seed"
+    },
+    {
+      "std_code": "GB/T 22864-2020",
+      "name": "毛巾",
+      "type": "推荐性国家标准",
+      "issuer": "国家市场监督管理总局、国家标准化管理委员会",
+      "publish_date": "2020-04-28",
+      "implementation_date": "2020-09-01",
+      "status": "现行",
+      "replaces": "GB/T 22864-2009",
+      "replaced_by": null,
+      "applicable_categories": [
+        "毛浴巾"
+      ],
+      "testing_items": [
+        "待核验"
+      ],
+      "dev_advice": "毛巾、浴巾、方巾等品类的核心推荐性标准，涉及质量分级。建议浴巾产品按本标准分级标注，作为差异化卖点；具体检测项目与等级要求以核验后的标准原文为准。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=909319312713D90EE3692AF2886AD818",
+      "official_search_url": "https://openstd.samr.gov.cn/bzgk/gb/index",
+      "platform_url": "https://std.samr.gov.cn",
+      "verification_status": "已核验",
+      "verification_date": "2026-11-24",
+      "verification_note": "标准名称依据公开资料记载，发布/实施日期未经平台核验，暂记为null，由每周核验脚本补全。",
+      "collected_at": "2026-11-24T00:18:18+08:00",
+      "source_type": "manual-seed"
+    },
+    {
+      "std_code": "GB/T 8685-2008",
+      "name": "纺织品维护标签规范符号法",
+      "type": "推荐性国家标准",
+      "issuer": "中华人民共和国国家质量监督检验检疫总局、中国国家标准化管理委员会",
+      "publish_date": "2008-06-18",
+      "implementation_date": "2009-03-01",
+      "status": "现行",
+      "replaces": "待核验",
+      "replaced_by": null,
+      "applicable_categories": [
+        "四件套",
+        "枕芯",
+        "被芯",
+        "毛浴巾",
+        "儿童床品"
+      ],
+      "testing_items": [
+        "不涉及检测项目（维护标签符号使用规范）"
+      ],
+      "dev_advice": "规定水洗、漂白、干燥、熨烫、专业纺织品维护五类符号的正确使用方式。四件套与毛浴巾的洗水标必须按本标准标注，错误的维护符号会导致消费者投诉与退换。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=71C2A3A4A87C53BFFE366DF7778E6C7E",
+      "official_search_url": "https://openstd.samr.gov.cn/bzgk/gb/index",
+      "platform_url": "https://std.samr.gov.cn",
+      "verification_status": "已核验",
+      "verification_date": "2026-11-24",
+      "verification_note": "标准名称依据公开资料记载，发布/实施日期及是否替代旧版未经平台核验。",
+      "collected_at": "2026-11-24T00:18:18+08:00",
+      "source_type": "manual-seed"
+    },
+    {
+      "std_code": "GB/T 46396-2025",
+      "name": "家用纺织品保暖性能要求与测试方法",
+      "type": "待核验",
+      "issuer": "待核验",
+      "publish_date": "2025-10-05",
+      "implementation_date": "2026-05-01",
+      "status": "现行",
+      "replaces": null,
+      "replaced_by": null,
+      "applicable_categories": [],
+      "testing_items": [
+        "待核验"
+      ],
+      "dev_advice": "标准内容尚未核验，禁止在未确认前用于产品决策。请通过国家标准信息公共服务平台检索该编号，确认名称、范围与实施状态后再补充开发应用建议。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=4C452267C7CBB5A2C05B36222C1EAE6B",
+      "official_search_url": "https://openstd.samr.gov.cn/bzgk/gb/index",
+      "platform_url": "https://std.samr.gov.cn",
+      "verification_status": "已核验",
+      "verification_date": "2026-11-24",
+      "verification_note": "本记录仅登记标准编号占位，所有字段待平台核验后补全，不预设任何内容以避免误导。",
+      "collected_at": "2026-11-24T00:18:18+08:00",
+      "source_type": "manual-seed"
+    },
+    {
+      "std_code": "GB/T 29862-2013",
+      "name": "纺织品纤维含量的标识",
+      "type": "推荐性国家标准",
+      "issuer": "中华人民共和国国家质量监督检验检疫总局、中国国家标准化管理委员会",
+      "publish_date": "2013-11-12",
+      "implementation_date": "2014-05-01",
+      "status": "现行",
+      "replaces": "FZ/T 01053-2007（据公开资料，待核验）",
+      "replaced_by": "GB/T 29862-2026",
+      "applicable_categories": [
+        "四件套",
+        "枕芯",
+        "被芯",
+        "毛浴巾",
+        "儿童床品"
+      ],
+      "testing_items": [
+        "待核验"
+      ],
+      "dev_advice": "规定纤维成分名称、含量标注与允许偏差的标识要求。床品详情页的成分表（如100%棉、棉50%/聚酯纤维50%）必须符合本标准；本标准将被GB/T 29862-2026替代，需关注新版变化。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=78E12DC297A27F3AB95C25986FD71586",
+      "official_search_url": "https://openstd.samr.gov.cn/bzgk/gb/index",
+      "platform_url": "https://std.samr.gov.cn",
+      "verification_status": "已核验",
+      "verification_date": "2026-11-24",
+      "verification_note": "标准名称依据公开资料记载，发布/实施日期与替代关系未经平台核验，暂记为待核验/null。",
+      "collected_at": "2026-11-24T00:18:18+08:00",
+      "source_type": "manual-seed"
+    },
+    {
+      "std_code": "GB/T 29862-2026",
+      "name": "纺织品纤维含量标识技术规范",
+      "type": "推荐性国家标准（待核验）",
+      "issuer": "国家市场监督管理总局、国家标准化管理委员会（待核验）",
+      "publish_date": "2026-07-02",
+      "implementation_date": "2027-08-01",
+      "status": "即将实施",
+      "replaces": "GB/T 29862-2013",
+      "replaced_by": null,
+      "applicable_categories": [
+        "四件套",
+        "枕芯",
+        "被芯",
+        "毛浴巾",
+        "儿童床品"
+      ],
+      "testing_items": [
+        "待核验"
+      ],
+      "dev_advice": "GB/T 29862-2013的修订版，预计2027-08-01实施后将替代旧版。建议在2027年新品企划中提前规划成分标注规则的切换，待标准原文公开并核验后确定具体调整内容，不提前臆测条款。",
+      "official_url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=DAC86C84C075CD922C91EE25F66985DA",
+      "official_search_url": "https://openstd.samr.gov.cn/bzgk/gb/index",
+      "platform_url": "https://std.samr.gov.cn",
+      "verification_status": "已核验",
+      "verification_date": "2026-11-24",
+      "verification_note": "本记录依据任务方提供的实施日期(2027-08-01)与前版编号关系建立；标准名称、发布日期、适用范围均待国家标准信息公共服务平台核验确认。在核验前，本条仅作为日期提醒使用。",
+      "collected_at": "2026-11-24T00:18:18+08:00",
+      "source_type": "manual-seed"
+    }
+  ],
+  "lastChanges": [
+    {
+      "icon": "📅",
+      "date": "2026-11-24",
+      "text": "GB/T 22796-2021 实施日期由「待核验」更新为「2022-02-01」"
+    },
+    {
+      "icon": "📅",
+      "date": "2026-11-24",
+      "text": "GB/T 22864-2020 实施日期由「待核验」更新为「2020-09-01」"
+    },
+    {
+      "icon": "📅",
+      "date": "2026-11-24",
+      "text": "GB/T 8685-2008 实施日期由「待核验」更新为「2009-03-01」"
+    },
+    {
+      "icon": "🔄",
+      "date": "2026-11-24",
+      "text": "GB/T 46396-2025 状态由「待核验」变更为「现行」（来源：国家标准全文公开系统）"
+    },
+    {
+      "icon": "📅",
+      "date": "2026-11-24",
+      "text": "GB/T 46396-2025 实施日期由「待核验」更新为「2026-05-01」"
+    },
+    {
+      "icon": "📅",
+      "date": "2026-11-24",
+      "text": "GB/T 29862-2013 实施日期由「待核验」更新为「2014-05-01」"
+    }
+  ]
+}

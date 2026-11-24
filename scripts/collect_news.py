@@ -109,6 +109,13 @@ KEYWORDS = [
     "面料", "趋势", "标准", "行业", "水洗棉", "牛奶绒", "亚麻",
 ]
 
+# 排除关键词: 命中即判为无关内容 (招聘/广告/推广等), 避免误收录
+BAD_KEYWORDS = [
+    "招聘", "诚聘", "招工", "求职", "简历", "高薪诚聘",
+    "career", "careers", "hiring", "job", "jobs", "vacanc", "recruit",
+    "广告", "推广", "招商加盟", "加盟商", "招代理", "热线", "咨询电话", "赞助商",
+]
+
 
 def log(msg, level="INFO"):
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {level} {msg}", flush=True)
@@ -315,6 +322,9 @@ def make_summary(text, limit=120):
 # ------------------------------------------------------------------
 def is_relevant(title, summary=""):
     hay = f"{title} {summary}".lower()
+    # 先排除招聘/广告/推广等无关内容
+    if any(bk.lower() in hay for bk in BAD_KEYWORDS):
+        return False
     return any(k.lower() in hay for k in KEYWORDS)
 
 
@@ -335,7 +345,7 @@ def collect_rss(src, limit=15):
             if not is_relevant(e["title"], e["summary"]):
                 continue
             d = parse_pubdate(e["pub"])
-            found.append({
+            found.append(annotate_item({
                 "source": src["id"],
                 "category": src["category"],
                 "date": d,
@@ -344,7 +354,7 @@ def collect_rss(src, limit=15):
                 "summary": make_summary(e["summary"]),
                 "url": e["url"],
                 "tags": extract_tags(e["title"] + " " + e["summary"]),
-            })
+            }, source_type="auto-rss", verification_status="已核验"))
         time.sleep(1)
     return found[:limit]
 
@@ -362,7 +372,7 @@ def collect_scrape(src, limit=15):
         for a in links:
             if not is_relevant(a["title"]):
                 continue
-            found.append({
+            found.append(annotate_item({
                 "source": src["id"],
                 "category": src["category"],
                 "date": date.today().isoformat(),
@@ -371,7 +381,7 @@ def collect_scrape(src, limit=15):
                 "summary": "",
                 "url": a["url"],
                 "tags": extract_tags(a["title"]),
-            })
+            }, source_type="auto-scrape", verification_status="待核验"))
         time.sleep(1)
     return found[:limit]
 
@@ -386,7 +396,7 @@ def collect_inbox(src):
                 data = json.load(f)
             items = data if isinstance(data, list) else data.get("items", [])
             for it in items:
-                found.append({
+                found.append(annotate_item({
                     "source": src["id"],
                     "category": src["category"],
                     "date": it.get("date", date.today().isoformat()),
@@ -395,11 +405,24 @@ def collect_inbox(src):
                     "summary": it.get("summary", ""),
                     "url": it.get("url", ""),
                     "tags": it.get("tags", extract_tags(it["title"])),
-                })
+                }, source_type="inbox", verification_status="待核验"))
             log(f"[{src['id']}] 导入 {path} -> {len(items)} 条")
         except Exception as e:
             log(f"[{src['id']}] inbox 读取失败 {path}: {e}", "WARN")
     return found
+
+
+def annotate_item(item, source_type, verification_status):
+    """V2.0: 统一补充溯源与核验元数据, 兼容旧数据 (旧字段缺失时补默认值)"""
+    now = datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds")
+    item["source_url"] = item.get("source_url") or item.get("url", "")
+    item.setdefault("published_at", item.get("date", ""))
+    item["collected_at"] = item.get("collected_at") or now
+    item["source_type"] = item.get("source_type") or source_type
+    item["verification_status"] = item.get("verification_status") or verification_status
+    if item.get("is_demo") is None:
+        item["is_demo"] = False
+    return item
 
 
 STOPWORDS = {"the", "a", "an", "of", "for", "and", "in", "to", "with", "new",
@@ -458,6 +481,13 @@ def merge(existing, fresh, keep_days=90):
             for k in ("title", "titleEn", "summary", "tags", "date"):
                 if it.get(k):
                     old[k] = it[k]
+            # V2.0: 为旧数据补齐元数据字段 (保留旧值不覆盖)
+            old.setdefault("source_url", old.get("url", ""))
+            old.setdefault("published_at", old.get("date", ""))
+            old.setdefault("collected_at", it.get("collected_at", ""))
+            old.setdefault("source_type", it.get("source_type", "legacy"))
+            old.setdefault("verification_status", it.get("verification_status", "待核验"))
+            old.setdefault("is_demo", False)
     cutoff = (date.today() - timedelta(days=keep_days)).isoformat()
     items = [v for v in by_fp.values() if v.get("date", "") >= cutoff]
     items.sort(key=lambda x: x.get("date", ""), reverse=True)
@@ -493,22 +523,55 @@ def main():
         fresh.extend(collected)
 
     existing = load_existing()
-    items, new_count = merge(existing, fresh)
+    try:
+        items, new_count = merge(existing, fresh)
+    except Exception as e:
+        # 合并异常不得导致已保存数据丢失: 退回使用旧数据
+        log(f"合并异常, 保留旧数据: {e}", "ERROR")
+        items, new_count = existing, 0
     log(f"合并完成: 新增 {new_count} 条, 总计 {len(items)} 条")
 
     if args.dry_run:
         log("dry-run 模式, 不写盘")
         return 0
 
+    # V2.0: 写盘前备份旧数据, 保证异常可回滚
     os.makedirs(DATA_DIR, exist_ok=True)
+    bak_file = NEWS_FILE + ".bak"
+    if os.path.exists(NEWS_FILE):
+        try:
+            with open(NEWS_FILE, "r", encoding="utf-8") as src, open(bak_file, "w", encoding="utf-8") as dst:
+                dst.write(src.read())
+        except Exception as e:
+            log(f"备份旧数据失败 (继续写盘): {e}", "WARN")
+
+    now_cst = datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds")
     output = {
-        "generatedAt": datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds"),
+        "generatedAt": now_cst,
         "total": len(items),
+        "changelog": {
+            "run_at": now_cst,
+            "new_count": new_count,
+            "total_after": len(items),
+            "sources_seen": [t["id"] for t in targets],
+        },
         "items": items,
     }
-    with open(NEWS_FILE, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
-    log(f"已写入 {NEWS_FILE}")
+    tmp_file = NEWS_FILE + ".tmp"
+    try:
+        with open(tmp_file, "w", encoding="utf-8") as f:
+            json.dump(output, f, ensure_ascii=False, indent=2)
+        os.replace(tmp_file, NEWS_FILE)
+    except Exception as e:
+        # 写盘失败时保留旧文件, 清理临时文件
+        log(f"写盘失败, 旧数据未受影响: {e}", "ERROR")
+        if os.path.exists(tmp_file):
+            try:
+                os.remove(tmp_file)
+            except Exception:
+                pass
+        return 1
+    log(f"已写入 {NEWS_FILE} (备份: {bak_file}, 新增 {new_count} 条)")
     return 0
 
 

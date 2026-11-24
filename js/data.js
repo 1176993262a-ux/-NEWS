@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // 家纺情报站 - 数据层
 // 真实数据由 scripts/collect_news.py 采集后写入 data/news.json
 // 此文件内置示例数据，用于演示与离线浏览
@@ -244,6 +244,15 @@ const SAMPLE_NEWS = [
 ];
 
 // 运行时数据：优先加载 data/news.json（采集脚本生成），失败则回退示例数据
+// 示例数据统一标记：与真实采集数据明显区分，禁止在生产中冒充真实新闻
+SAMPLE_NEWS.forEach(n => {
+  n.is_demo = true;
+  n.source_type = "demo";
+  n.verification_status = "示例";
+  n.published_at = n.date;
+  n.source_url = n.url;
+  n.collected_at = "2026-11-23T09:00:00+08:00";
+});
 let NEWS = SAMPLE_NEWS;
 let DATA_LOADED_FROM_LIVE = false;
 

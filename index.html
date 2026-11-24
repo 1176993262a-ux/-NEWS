@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>家纺情报站 · 床品行业每日速览</title>
-  <meta name="description" content="产品经理的床品行业情报面板：全球品牌、床品创新、国内标准、材料技术、消费洞察一站式追踪">
+  <meta name="description" content="产品经理的家纺行业情报面板：行业资讯、家纺标准、品牌上新、市场数据、创新机会一站式追踪">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛏️</text></svg>">
 </head>
@@ -27,11 +27,19 @@
         <span class="today-badge" id="todayBadge">📅 --</span>
       </div>
     </div>
+    <nav class="page-nav wrap" aria-label="模块导航">
+      <a class="page-link" href="index.html">🏠 情报首页</a>
+      <a class="page-link" href="standards.html">📋 家纺标准</a>
+      <a class="page-link" href="brands.html">🚀 品牌上新</a>
+      <a class="page-link" href="market.html">📊 市场数据</a>
+      <a class="page-link" href="insights.html">💡 创新机会</a>
+    </nav>
     <nav class="source-nav wrap" id="sourceNav" aria-label="信息源筛选"></nav>
   </header>
 
   <main class="wrap layout">
     <div class="content">
+      <div id="demoBanner"></div>
       <section class="digest" id="digest" aria-label="今日重点"></section>
       <div class="filter-bar" id="filterBar" aria-label="分类筛选"></div>
       <section class="feed" id="feed" aria-label="情报列表"></section>
@@ -69,6 +77,7 @@
     </div>
   </footer>
 
+  <script src="js/common.js"></script>
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>

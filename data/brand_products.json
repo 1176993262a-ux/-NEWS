@@ -1,0 +1,78 @@
+{
+  "module": "brand_products",
+  "description": "国内外床品品牌新品数据库：每日由 scripts/collect_brand_products.py 巡检品牌官网与官方旗舰店公开商品信息，通过页面快照对比识别新品。当前 items 为空属正常状态——首次联网采集后自动填充，绝不预置虚构商品。",
+  "generatedAt": "2026-11-23T00:00:00+08:00",
+  "lastCheckAt": null,
+  "brandCount": 17,
+  "categories": ["四件套", "被芯", "枕芯", "床笠", "床垫", "毛毯", "毛浴巾", "功能家纺"],
+  "countries": ["中国", "瑞典", "日本", "西班牙", "美国", "澳大利亚"],
+  "priceBands": [
+    { "id": "budget",   "name": "入门",   "cny": [0, 300],    "usd": [0, 50] },
+    { "id": "mid",      "name": "中端",   "cny": [300, 800],  "usd": [50, 150] },
+    { "id": "premium",  "name": "中高端", "cny": [800, 2000], "usd": [150, 400] },
+    { "id": "luxury",   "name": "高端",   "cny": [2000, null], "usd": [400, null] }
+  ],
+  "changeTypes": {
+    "new": "真正的新品（新系列/新功能首次上市）",
+    "colorway": "换色 / 换花型（同款新配色或新印刷）",
+    "revision": "旧品改版（材质/工艺/版型调整）",
+    "relist": "重新上架（下架商品恢复在售）"
+  },
+  "fields": [
+    { "key": "id",                    "cn": "记录ID",          "note": "采集时生成，如 bp-xxxx" },
+    { "key": "brand",                 "cn": "品牌ID",          "note": "对应 brands[].id" },
+    { "key": "brand_name",            "cn": "品牌名称" },
+    { "key": "country",               "cn": "国家" },
+    { "key": "category",              "cn": "品类" },
+    { "key": "name",                  "cn": "产品名称" },
+    { "key": "model",                 "cn": "商品型号" },
+    { "key": "series",                "cn": "系列" },
+    { "key": "price",                 "cn": "售价",            "note": "字符串，可为区间如 129-399" },
+    { "key": "currency",              "cn": "币种",            "note": "CNY/USD/JPY/EUR/GBP/AUD" },
+    { "key": "sizes",                 "cn": "尺寸" },
+    { "key": "material",              "cn": "材质" },
+    { "key": "filling",               "cn": "填充物" },
+    { "key": "craft",                 "cn": "工艺" },
+    { "key": "features",              "cn": "功能卖点",        "note": "数组" },
+    { "key": "image_url",             "cn": "图片链接" },
+    { "key": "product_url",           "cn": "原始商品链接" },
+    { "key": "official_release_date", "cn": "官方发布时间",    "note": "ISO 日期，无官方依据时必须为 null，不得用采集时间顶替" },
+    { "key": "first_detected_at",     "cn": "首次发现时间",    "note": "本站首次采集到的时间戳，明确区分于上市时间" },
+    { "key": "collected_at",          "cn": "采集时间" },
+    { "key": "change_type",           "cn": "上新类型",        "note": "new/colorway/revision/relist/null" },
+    { "key": "source_platform",       "cn": "采集渠道",        "note": "品牌官网 / 官方旗舰店公开页" },
+    { "key": "verification_status",   "cn": "核验状态" },
+    { "key": "is_demo",               "cn": "示例标记",        "note": "真实数据恒为 false" }
+  ],
+  "brands": [
+    { "id": "luolai",        "name": "罗莱",       "name_en": "Luolai",        "country": "中国", "region": "国内", "official_site": null,            "verification_status": "待核验", "note": "官网地址待核验，以品牌官方公示为准" },
+    { "id": "mercury",       "name": "水星家纺",   "name_en": "Mercury",       "country": "中国", "region": "国内", "official_site": null,            "verification_status": "待核验", "note": "官网地址待核验" },
+    { "id": "fuanna",        "name": "富安娜",     "name_en": "Fuanna",        "country": "中国", "region": "国内", "official_site": null,            "verification_status": "待核验", "note": "官网地址待核验" },
+    { "id": "mengjie",       "name": "梦洁",       "name_en": "Mengjie",       "country": "中国", "region": "国内", "official_site": null,            "verification_status": "待核验", "note": "官网地址待核验" },
+    { "id": "beyond",        "name": "博洋",       "name_en": "Beyond",        "country": "中国", "region": "国内", "official_site": null,            "verification_status": "待核验", "note": "官网地址待核验" },
+    { "id": "atour-planet",  "name": "亚朵星球",   "name_en": "Atour Planet",  "country": "中国", "region": "国内", "official_site": "https://www.atour.com/", "verification_status": "待核验", "note": "亚朵旗下床品品牌，经亚朵官网及官方旗舰店公开渠道" },
+    { "id": "yanxuan",       "name": "网易严选",   "name_en": "Yanxuan",       "country": "中国", "region": "国内", "official_site": "https://you.163.com/",    "verification_status": "待核验", "note": "商品页公开可访问" },
+    { "id": "8h",            "name": "8H",         "name_en": "8H",            "country": "中国", "region": "国内", "official_site": null,            "verification_status": "待核验", "note": "小米生态链床品品牌，官网待核验" },
+    { "id": "ikea",          "name": "IKEA",       "name_en": "IKEA",          "country": "瑞典", "region": "国际", "official_site": "https://www.ikea.com/",   "verification_status": "待核验", "note": "官网商品页公开" },
+    { "id": "muji",          "name": "MUJI",       "name_en": "MUJI",          "country": "日本", "region": "国际", "official_site": "https://www.muji.com/",   "verification_status": "待核验", "note": "官网商品页公开" },
+    { "id": "nitori",        "name": "NITORI",     "name_en": "Nitori",        "country": "日本", "region": "国际", "official_site": "https://www.nitori.co.jp/", "verification_status": "待核验", "note": "官网商品页公开" },
+    { "id": "zara-home",     "name": "Zara Home",  "name_en": "Zara Home",     "country": "西班牙", "region": "国际", "official_site": "https://www.zarahome.com/", "verification_status": "待核验", "note": "官网商品页公开" },
+    { "id": "hm-home",       "name": "H&M HOME",   "name_en": "H&M HOME",      "country": "瑞典", "region": "国际", "official_site": "https://www2.hm.com/zh_cn/home.html", "verification_status": "待核验", "note": "官网商品页公开" },
+    { "id": "brooklinen",    "name": "Brooklinen", "name_en": "Brooklinen",    "country": "美国", "region": "国际", "official_site": "https://www.brooklinen.com/", "verification_status": "待核验", "note": "DTC 官网商品页公开" },
+    { "id": "parachute",     "name": "Parachute",  "name_en": "Parachute",     "country": "美国", "region": "国际", "official_site": "https://www.parachutehome.com/", "verification_status": "待核验", "note": "DTC 官网商品页公开" },
+    { "id": "quince",        "name": "Quince",     "name_en": "Quince",        "country": "美国", "region": "国际", "official_site": "https://quince.com/",     "verification_status": "待核验", "note": "DTC 官网商品页公开" },
+    { "id": "bed-threads",   "name": "Bed Threads", "name_en": "Bed Threads",  "country": "澳大利亚", "region": "国际", "official_site": "https://bedthreads.com/", "verification_status": "待核验", "note": "DTC 官网商品页公开" }
+  ],
+  "items": [],
+  "snapshotStatus": {},
+  "sourcePolicy": {
+    "priority": ["品牌官网", "有权限的官方旗舰店公开商品信息"],
+    "prohibited": ["不绕过登录、验证码或反爬措施", "不采集需登录后台的交易数据", "来源失败时保留历史数据并更新展示时间"],
+    "releaseDateRule": "没有官方上市时间时，记录为 null 并显示「官方未公布」，禁止将首次采集时间当作上市日期"
+  },
+  "notes": [
+    "当前 items 为空：本环境无法联网，需等 GitHub Actions 或本地执行 scripts/collect_brand_products.py 后填充真实商品。",
+    "任何标注 is_demo=true 的商品仅为界面演示，生产环境不会出现。",
+    "跨品牌对比（相同品类下创新方向）由前端基于 items 实时聚合，无数据时显示空状态。"
+  ]
+}

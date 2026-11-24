@@ -1,16 +1,16 @@
 // ============================================================
-// 家纺情报站 - 应用逻辑
+// 家纺情报站 - 首页应用逻辑（V2.0：接入 common.js，增加示例/核验标记）
 // ============================================================
 
 const state = {
   source: "all",
   category: "all",
   query: "",
-  bookmarks: JSON.parse(localStorage.getItem("ht_bookmarks") || "[]"),
-  readIds: JSON.parse(localStorage.getItem("ht_read") || "[]"),
+  bookmarks: HT.storage.get("ht_bookmarks", []),
+  readIds: HT.storage.get("ht_read", []),
 };
 
-// ---------- 工具 ----------
+// ---------- 日期工具 ----------
 function fmtDate(d) {
   const dt = new Date(d + "T00:00:00");
   const today = new Date(); today.setHours(0, 0, 0, 0);
@@ -31,23 +31,6 @@ function dateGroupLabel(d) {
   if (diff > 1 && diff <= 7) return "本周更早";
   if (diff > 7 && diff <= 14) return "上周";
   return `${dt.getFullYear()}年${dt.getMonth() + 1}月`;
-}
-
-function escapeHtml(s) {
-  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-}
-
-function showToast(msg) {
-  let t = document.querySelector(".toast");
-  if (!t) {
-    t = document.createElement("div");
-    t.className = "toast";
-    document.body.appendChild(t);
-  }
-  t.textContent = msg;
-  t.classList.add("show");
-  clearTimeout(t._timer);
-  t._timer = setTimeout(() => t.classList.remove("show"), 1800);
 }
 
 // ---------- 过滤 ----------
@@ -114,8 +97,8 @@ function renderDigest() {
   featured.forEach(n => {
     const s = getSource(n.source);
     html += `<div class="digest-card" data-id="${n.id}" style="--c:${s.color}">
-      <div class="dc-source" style="color:${s.color}">${s.name}</div>
-      <div class="dc-title">${escapeHtml(n.title)}</div>
+      <div class="dc-source" style="color:${s.color}">${s.name}${HT.demoBadge(n)}</div>
+      <div class="dc-title">${HT.escapeHtml(n.title)}</div>
     </div>`;
   });
   html += `</div>`;
@@ -133,7 +116,7 @@ function newsCardHtml(n) {
   const c = getCategory(n.category);
   const starred = state.bookmarks.includes(n.id);
   const read = state.readIds.includes(n.id);
-  const link = n.url || s.baseUrl || "#";
+  const link = n.url || n.source_url || s.baseUrl || "#";
   return `<article class="news-card ${read ? "read" : ""}" data-id="${n.id}">
     <div class="stripe" style="background:${s.color}"></div>
     <div class="nc-body">
@@ -141,11 +124,12 @@ function newsCardHtml(n) {
         <span class="src-badge" style="background:${s.color}">${s.name}</span>
         <span class="cat-tag">${c.name}</span>
         <span class="nc-time">${fmtDate(n.date)}</span>
+        ${HT.demoBadge(n)}${HT.verifyBadge(n)}
       </div>
-      <div class="nc-title">${escapeHtml(n.title)}</div>
-      ${n.titleEn ? `<div class="nc-title-en">${escapeHtml(n.titleEn)}</div>` : ""}
-      <div class="nc-summary">${escapeHtml(n.summary)}</div>
-      ${n.tags && n.tags.length ? `<div class="nc-tags">${n.tags.map(t => `<span>#${escapeHtml(t)}</span>`).join("")}</div>` : ""}
+      <div class="nc-title">${HT.escapeHtml(n.title)}</div>
+      ${n.titleEn ? `<div class="nc-title-en">${HT.escapeHtml(n.titleEn)}</div>` : ""}
+      <div class="nc-summary">${HT.escapeHtml(n.summary)}</div>
+      ${n.tags && n.tags.length ? `<div class="nc-tags">${n.tags.map(t => `<span>#${HT.escapeHtml(t)}</span>`).join("")}</div>` : ""}
     </div>
     <div class="nc-actions">
       <button class="star-btn ${starred ? "on" : ""}" data-star="${n.id}" title="收藏">${starred ? "★" : "☆"}</button>
@@ -192,7 +176,7 @@ function renderFeed() {
 function openItem(n) {
   if (!state.readIds.includes(n.id)) {
     state.readIds.push(n.id);
-    localStorage.setItem("ht_read", JSON.stringify(state.readIds));
+    HT.storage.set("ht_read", state.readIds);
     const card = document.querySelector(`.news-card[data-id="${n.id}"]`);
     if (card) card.classList.add("read");
   }
@@ -200,21 +184,22 @@ function openItem(n) {
 
 function toggleBookmark(id) {
   const i = state.bookmarks.indexOf(id);
-  if (i === -1) { state.bookmarks.push(id); showToast("已加入收藏"); }
-  else { state.bookmarks.splice(i, 1); showToast("已取消收藏"); }
-  localStorage.setItem("ht_bookmarks", JSON.stringify(state.bookmarks));
+  if (i === -1) { state.bookmarks.push(id); HT.showToast("已加入收藏"); }
+  else { state.bookmarks.splice(i, 1); HT.showToast("已取消收藏"); }
+  HT.storage.set("ht_bookmarks", state.bookmarks);
   renderAll();
 }
 
 function renderBookmarks() {
   const panel = document.getElementById("bookmarksPanel");
+  if (!panel) return;
   const list = state.bookmarks
     .map(id => NEWS.find(n => n.id === id))
     .filter(Boolean);
   let body = list.length
     ? list.map(n => {
         const s = getSource(n.source);
-        return `<a class="bm-item" data-id="${n.id}"><div class="bm-title">${escapeHtml(n.title)}</div><div class="bm-src">${s.name} · ${fmtDate(n.date)}</div></a>`;
+        return `<a class="bm-item" data-id="${n.id}"><div class="bm-title">${HT.escapeHtml(n.title)}</div><div class="bm-src">${s.name} · ${fmtDate(n.date)}${HT.demoBadge(n)}</div></a>`;
       }).join("")
     : `<div class="bm-empty">点击 ☆ 收藏值得深挖的情报</div>`;
   panel.querySelector(".panel-body").innerHTML = body;
@@ -229,6 +214,7 @@ function renderBookmarks() {
 
 function renderSourcesPanel() {
   const panel = document.getElementById("sourcesPanel");
+  if (!panel) return;
   let html = "";
   SOURCES.forEach(s => {
     html += `<div class="source-item" data-source="${s.id}">
@@ -256,59 +242,36 @@ function renderAll() {
   renderDigest();
   renderFeed();
   renderBookmarks();
+  const hasDemo = NEWS.some(n => n.is_demo);
+  HT.renderDemoBanner("demoBanner", hasDemo);
 }
 
-// ---------- 主题 ----------
-function initTheme() {
-  const saved = localStorage.getItem("ht_theme") || "light";
-  document.documentElement.dataset.theme = saved;
-  document.getElementById("themeToggle").textContent = saved === "dark" ? "☀️" : "🌙";
-}
-function toggleTheme() {
-  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-  document.documentElement.dataset.theme = next;
-  localStorage.setItem("ht_theme", next);
-  document.getElementById("themeToggle").textContent = next === "dark" ? "☀️" : "🌙";
-}
-
-// ---------- 启动 ----------
-async function init() {
-  initTheme();
-  document.getElementById("themeToggle").onclick = toggleTheme;
-  document.getElementById("searchInput").addEventListener("input", (e) => {
-    state.query = e.target.value;
-    renderFeed();
-  });
-  const now = new Date();
-  document.getElementById("todayBadge").textContent =
-    `📅 ${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
-
-  const dataResult = await loadNewsData();
-  renderSourcesPanel();
-  renderAll();
-  renderDataStatus(dataResult);
-}
-
+// ---------- 数据状态 ----------
 function renderDataStatus(data) {
   const statusEl = document.getElementById("dataStatus");
   const timeEl = document.getElementById("lastUpdated");
   if (!statusEl || !timeEl) return;
   if (DATA_LOADED_FROM_LIVE && data && data.generatedAt) {
     statusEl.textContent = "实时";
-    timeEl.textContent = `最近采集：${formatTimestamp(data.generatedAt)}（北京时间）`;
+    timeEl.textContent = `最近采集：${HT.fmtTimestamp(data.generatedAt)}（北京时间）`;
   } else {
     statusEl.textContent = "示例";
     timeEl.textContent = "当前展示示例数据，首次自动采集后切换为实时情报";
   }
 }
 
-function formatTimestamp(iso) {
-  try {
-    const d = new Date(iso);
-    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
-  } catch (e) {
-    return iso;
-  }
+// ---------- 启动 ----------
+async function init() {
+  HT.shellReady();
+  document.getElementById("searchInput").addEventListener("input", (e) => {
+    state.query = e.target.value;
+    renderFeed();
+  });
+
+  const dataResult = await loadNewsData();
+  renderSourcesPanel();
+  renderAll();
+  renderDataStatus(dataResult);
 }
 
 init();

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>品牌上新 · 家纺情报站</title>
+  <meta name="description" content="国内外床品品牌新品数据库：17 个品牌的新品监测、上新类型识别与跨品牌创新对比">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏷️</text></svg>">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">🛏️</div>
+        <div>
+          <h1>家纺情报站</h1>
+          <p class="brand-sub">国内外品牌新品数据库 · 竞品监测视角</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="themeToggle" class="icon-btn" title="切换深色/浅色">🌙</button>
+        <span class="today-badge" id="todayBadge">📅 --</span>
+      </div>
+    </div>
+    <nav class="page-nav wrap" aria-label="模块导航">
+      <a class="page-link" href="index.html">📰 情报首页</a>
+      <a class="page-link" href="standards.html">📋 家纺标准</a>
+      <a class="page-link" href="brands.html">🏷️ 品牌上新</a>
+      <a class="page-link" href="market.html">📊 市场数据</a>
+      <a class="page-link" href="insights.html">💡 创新机会</a>
+    </nav>
+  </header>
+
+  <main class="wrap layout">
+    <div class="content">
+      <div class="page-head">
+        <h2>国内外品牌新品数据库</h2>
+        <p>监测 <b>8 个国内品牌 + 9 个国际品牌</b>的四件套、被芯、枕芯、床笠、床垫、毛毯、毛浴巾及功能家纺动态。通过页面快照对比识别<b>真正新品 / 换色换花 / 旧品改版 / 重新上架</b>，并跨品牌对比相同品类下的创新方向。仅采集品牌官网与公开旗舰店信息，不绕过任何登录或反爬限制。</p>
+        <p class="std-meta-row" id="brandMeta" style="margin-top:8px"></p>
+      </div>
+
+      <div id="brandDemoBanner"></div>
+
+      <div class="search" style="margin-bottom:12px">
+        <input id="brandSearch" type="search" style="width:100%" placeholder="搜索产品名称、面料、填充物、工艺或卖点…" autocomplete="off">
+      </div>
+
+      <div class="filter-bar" id="brandFilterBar" aria-label="品牌/品类/价格筛选"></div>
+      <div style="font-size:12px;color:var(--muted);margin:10px 0 14px">共 <b id="brandCount" style="color:var(--ink)">--</b> 件匹配商品</div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+
+    <aside class="sidebar">
+      <section class="panel" id="brandComparePanel">
+        <div class="panel-head">🔀 跨品牌对比 <span class="count-pill">0</span></div>
+        <div class="panel-body"></div>
+      </section>
+
+      <section class="panel" id="brandCheckPanel">
+        <div class="panel-head">🛰️ 最近巡检 <span class="count-pill">0</span></div>
+        <div class="panel-body"></div>
+      </section>
+
+      <section class="panel" id="brandsListPanel">
+        <div class="panel-head">🏷️ 监控品牌 <span class="count-pill">0</span></div>
+        <div class="panel-body"></div>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      家纺情报站 · 品牌新品每日由 GitHub Actions 巡检官网与公开旗舰店 · 无官方依据不标注上市时间<br>
+      <a href="data/brand_products.json">查看品牌新品原始数据</a>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/brands.js"></script>
+</body>
+</html>

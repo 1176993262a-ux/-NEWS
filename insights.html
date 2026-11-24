@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>创新机会 · 家纺情报站</title>
+  <meta name="description" content="家纺产品创新机会：关联标准合规、品牌上新、市场数据与消费者需求，区分事实/推断/建议，结论可溯源">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">🛏️</div>
+        <div>
+          <h1>家纺情报站</h1>
+          <p class="brand-sub">产品创新机会 · 证据驱动决策</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="themeToggle" class="icon-btn" title="切换深色/浅色">🌙</button>
+        <span class="today-badge" id="todayBadge">📅 --</span>
+      </div>
+    </div>
+    <nav class="page-nav wrap" aria-label="模块导航">
+      <a class="page-link" href="index.html">📰 情报首页</a>
+      <a class="page-link" href="standards.html">📋 家纺标准</a>
+      <a class="page-link" href="brands.html">🏷️ 品牌上新</a>
+      <a class="page-link" href="market.html">📊 市场数据</a>
+      <a class="page-link" href="insights.html">💡 创新机会</a>
+    </nav>
+  </header>
+
+  <main class="wrap layout">
+    <div class="content">
+      <div class="page-head">
+        <h2>产品创新机会</h2>
+        <p>自动关联<b>家纺标准、品牌上新、市场数据与消费者需求</b>四类记录，按品类输出：近期热门材料/工艺/功能、品牌新品共性与差异、有证据支持的消费者需求、可验证的价格带机会、潜在产品开发方向。所有结论<b>可追溯到原始记录</b>，严格区分 <span class="it-badge it-fact">📌 事实</span> <span class="it-badge it-inference">🧠 推断</span> <span class="it-badge it-suggestion">💡 建议</span>。数据不足时显示空状态，<b>不强行计算机会评分</b>。</p>
+        <p class="std-meta-row" id="insightsMeta" style="margin-top:8px"></p>
+      </div>
+
+      <div id="insightsDemoBanner"></div>
+
+      <div class="insight-list" id="insightsList"></div>
+    </div>
+
+    <aside class="sidebar">
+      <section class="panel">
+        <div class="panel-head">🧭 结论类型说明</div>
+        <div class="panel-body" style="padding:14px 16px">
+          <p style="margin:0 0 10px"><span class="it-badge it-fact">📌 事实</span> 直接来自原始记录，可点击溯源链接核验</p>
+          <p style="margin:0 0 10px"><span class="it-badge it-inference">🧠 推断</span> 基于多条记录的聚合分析，非定量结论</p>
+          <p style="margin:0 0 10px"><span class="it-badge it-suggestion">💡 建议</span> 综合多模块证据提出的方向，需进一步验证</p>
+          <p style="margin:0;font-size:11px;color:var(--muted)">本页不输出机会评分：评分需要完备的市场数据支撑，缺数据时只给空状态与证据缺口说明。</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">🗂️ 数据依赖状态</div>
+        <div class="panel-body" style="padding:14px 16px">
+          <p style="font-size:12px;color:var(--muted);line-height:1.8;margin:0">
+            家纺标准库：加载后自动提示即将实施标准<br>
+            品牌上新：空时无法对比创新方向<br>
+            市场数据：空时价格带机会不可量化<br>
+            行业资讯：示例数据不作为推断依据
+          </p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">🔗 原始数据</div>
+        <div class="panel-body" style="padding:14px 16px">
+          <p style="margin:0 0 6px"><a href="data/standards.json">standards.json ↗</a></p>
+          <p style="margin:0 0 6px"><a href="data/brand_products.json">brand_products.json ↗</a></p>
+          <p style="margin:0 0 6px"><a href="data/market_metrics.json">market_metrics.json ↗</a></p>
+          <p style="margin:0"><a href="data/news.json">news.json ↗</a></p>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      家纺情报站 · 创新机会基于真实记录推导 · 数据不足时显示空状态而非评分<br>
+      所有推断与建议需结合实物检测、合规审查与用户调研进一步验证
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/insights.js"></script>
+</body>
+</html>

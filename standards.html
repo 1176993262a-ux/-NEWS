@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>家纺标准 · 家纺情报站</title>
+  <meta name="description" content="家纺标准与技术资料库：床上用品国家标准收录、状态追踪与开发应用建议">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">🛏️</div>
+        <div>
+          <h1>家纺情报站</h1>
+          <p class="brand-sub">家纺标准与技术资料库 · 产品合规视角</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="themeToggle" class="icon-btn" title="切换深色/浅色">🌙</button>
+        <span class="today-badge" id="todayBadge">📅 --</span>
+      </div>
+    </div>
+    <nav class="page-nav wrap" aria-label="模块导航">
+      <a class="page-link" href="index.html">📰 情报首页</a>
+      <a class="page-link" href="standards.html">📋 家纺标准</a>
+      <a class="page-link" href="brands.html">🏷️ 品牌上新</a>
+      <a class="page-link" href="market.html">📊 市场数据</a>
+      <a class="page-link" href="insights.html">💡 创新机会</a>
+    </nav>
+  </header>
+
+  <main class="wrap layout">
+    <div class="content">
+      <div class="page-head">
+        <h2>家纺标准与技术资料库</h2>
+        <p>收录床上用品相关国家标准，统一标注<b>现行 / 即将实施 / 旧版 / 待核验</b>状态，覆盖四件套、枕芯、被芯、毛浴巾、儿童床品等品类。所有标准均以<b>国家标准信息公共服务平台</b>为准，未核验字段一律显示「待核验」，不自行编造技术指标。</p>
+        <p class="std-meta-row" id="stdMeta" style="margin-top:8px"></p>
+      </div>
+
+      <div class="search" style="margin-bottom:12px">
+        <input id="stdSearch" type="search" style="width:100%" placeholder="搜索标准号或关键词，如 GB 18401、甲醛、pH 值、纤维含量…" autocomplete="off">
+      </div>
+
+      <div class="filter-bar" id="stdFilterBar" aria-label="品类与状态筛选"></div>
+      <div style="font-size:12px;color:var(--muted);margin:10px 0 14px">共 <b id="stdCount" style="color:var(--ink)">--</b> 项匹配标准</div>
+
+      <div class="std-grid" id="stdGrid"></div>
+    </div>
+
+    <aside class="sidebar">
+      <section class="panel" id="stdChangesPanel">
+        <div class="panel-head">🔔 最新标准变化 <span class="count-pill">0</span></div>
+        <div class="panel-body"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">🎨 状态图例</div>
+        <div class="panel-body" style="padding:14px 16px">
+          <p style="margin:0 0 10px"><span class="status-badge st-current">✅ 现行</span> 当前正在实施，产品可直接对照执行</p>
+          <p style="margin:0 0 10px"><span class="status-badge st-upcoming">🆕 即将实施</span> 已发布未实施，新品开发需提前过渡</p>
+          <p style="margin:0 0 10px"><span class="status-badge st-old">📦 旧版</span> 已被替代，仅作历史与存量产品参考</p>
+          <p style="margin:0 0 10px"><span class="status-badge st-unknown">❓ 待核验</span> 字段尚需官方平台确认，不代表不存在</p>
+          <p style="margin:0"><span class="status-badge st-draft">📝 征求意见</span> 标准草案阶段，可提交行业反馈</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">🔗 官方核验渠道</div>
+        <div class="panel-body" style="padding:14px 16px">
+          <p style="margin:0 0 8px"><a href="https://openstd.samr.gov.cn/" target="_blank" rel="noopener">国家标准全文公开系统 ↗</a></p>
+          <p style="margin:0 0 8px"><a href="https://std.samr.gov.cn/" target="_blank" rel="noopener">国家标准信息公共服务平台 ↗</a></p>
+          <p style="margin:0 0 8px"><a href="http://www.chinahometex.org/" target="_blank" rel="noopener">中国家用纺织品行业协会 ↗</a></p>
+          <p style="margin:0;font-size:11px;color:var(--muted)">本站仅索引公开元数据与官方链接，不复制、不分发受版权保护的标准全文。</p>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      家纺情报站 · 标准数据每周由 GitHub Actions 自动核验 · 状态以上线时最近一次核验为准<br>
+      <a href="data/standards.json">查看标准原始数据</a>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/standards.js"></script>
+</body>
+</html>
