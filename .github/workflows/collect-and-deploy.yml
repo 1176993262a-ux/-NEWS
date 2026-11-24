@@ -2,16 +2,19 @@ name: Collect & Deploy
 
 on:
   schedule:
-    # 00:00 UTC = 北京时间 08:00，GitHub Actions cron 可能有十几分钟延迟属正常
+    # 00:00 UTC = 北京时间 08:00（GitHub Actions cron 可能有十几分钟延迟属正常）
     - cron: '0 0 * * *'
+    # 周日 16:00 UTC = 北京时间周一 00:00：每周核验家纺标准修订动态
+    - cron: '0 16 * * 0'
   workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - 'index.html'
+      - '*.html'
       - 'css/**'
       - 'js/**'
-      - 'data/inbox/**'
+      - 'data/**'
+      - 'scripts/**'
 
 permissions:
   contents: write
@@ -32,21 +35,42 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Collect news
+      # ---- 每日采集：行业资讯 + 品牌上新 ----
+      # 单步异常不得阻断部署：continue-on-error，且脚本内部对每个数据源都做了 try/except 隔离
+      - name: Collect news (daily)
+        if: github.event_name != 'schedule' || github.event.schedule != '0 16 * * 0'
         run: python scripts/collect_news.py
+        continue-on-error: true
 
+      - name: Collect brand products (daily)
+        if: github.event_name != 'schedule' || github.event.schedule != '0 16 * * 0'
+        run: python scripts/collect_brand_products.py
+        continue-on-error: true
+
+      # ---- 每周核验：家纺标准状态/实施日期/替代关系 ----
+      - name: Verify standards (weekly)
+        if: github.event_name != 'schedule' || github.event.schedule == '0 16 * * 0'
+        run: python scripts/verify_standards.py
+        continue-on-error: true
+
+      # ---- 提交采集数据（[skip ci] 避免触发循环构建）----
       - name: Commit fresh data
+        continue-on-error: true
         run: |
           git config user.name "news-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/news.json
-          git diff --staged --quiet || git commit -m "chore: update news data $(date -u +%F) [skip ci]"
+          git add data/*.json 2>/dev/null || true
+          git add data/snapshots 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "chore: update collected data $(date -u +%F) [skip ci]"
           git push || true
 
+      # ---- 发布：5 个页面 + 静态资源 + JSON 数据 ----
       - name: Prepare publish folder
         run: |
           mkdir -p _site
-          cp -r index.html css js data .nojekyll _site/
+          cp -r *.html css js .nojekyll _site/
+          mkdir -p _site/data
+          cp data/*.json _site/data/
 
       - uses: actions/upload-pages-artifact@v3
         with:
