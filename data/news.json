@@ -1,7 +1,165 @@
 {
-  "generatedAt": "2026-11-23T22:50:23+08:00",
+  "generatedAt": "2026-11-24T11:06:30+08:00",
   "total": 11,
+  "changelog": {
+    "run_at": "2026-11-24T11:06:30+08:00",
+    "new_count": 0,
+    "total_after": 11,
+    "sources_seen": [
+      "htt",
+      "bnn",
+      "cnhfa",
+      "heimtextil",
+      "intertextile",
+      "materials",
+      "wgsn",
+      "xhs"
+    ]
+  },
   "items": [
+    {
+      "source": "bnn",
+      "category": "bedding-innovation",
+      "date": "2026-11-24",
+      "title": "Market reinforces imperative of in-store sales",
+      "titleEn": "Market reinforces imperative of in-store sales",
+      "summary": "Having recently spent a week looking at mattresses in showrooms, talking to mattress folks, testing out new mattresses h",
+      "url": "https://beddingnewsnow.com/blog/2026/11/21/market-reinforces-imperative-of-in-store-sales/",
+      "tags": [
+        "mattress",
+        "bedding"
+      ],
+      "id": "f5f5cd95d934f",
+      "featured": false,
+      "source_url": "https://beddingnewsnow.com/blog/2026/11/21/market-reinforces-imperative-of-in-store-sales/",
+      "published_at": "2026-11-24",
+      "collected_at": "2026-11-24T11:06:23+08:00",
+      "source_type": "auto-rss",
+      "verification_status": "已核验",
+      "is_demo": false
+    },
+    {
+      "source": "bnn",
+      "category": "bedding-innovation",
+      "date": "2026-11-24",
+      "title": "Muenkel Minutes: Unmasking the fear monster",
+      "titleEn": "Muenkel Minutes: Unmasking the fear monster",
+      "summary": "While building confidence in the outcome of a sale is important, it&#8217;s equally critical that salespeople remove the",
+      "url": "https://beddingnewsnow.com/blog/2026/11/21/muenkel-minutes-unmasking-the-fear-monster-2/",
+      "tags": [
+        "bedding"
+      ],
+      "id": "fccd304559245",
+      "featured": false,
+      "source_url": "https://beddingnewsnow.com/blog/2026/11/21/muenkel-minutes-unmasking-the-fear-monster-2/",
+      "published_at": "2026-11-24",
+      "collected_at": "2026-11-24T11:06:23+08:00",
+      "source_type": "auto-rss",
+      "verification_status": "已核验",
+      "is_demo": false
+    },
+    {
+      "source": "bnn",
+      "category": "bedding-innovation",
+      "date": "2026-11-24",
+      "title": "Paramount Sleep President Richard Fleck talks benefits of open houses",
+      "titleEn": "Paramount Sleep President Richard Fleck talks benefits of open houses",
+      "summary": "Open houses aren&#8217;t a new concept in the bedding industry, but they are few and far between. Richard Fleck sat down",
+      "url": "https://beddingnewsnow.com/blog/2026/11/21/paramount-sleep-president-richard-fleck-talks-benefits-of-open-houses/",
+      "tags": [
+        "bedding",
+        "down"
+      ],
+      "id": "f9a619a834632",
+      "featured": false,
+      "source_url": "https://beddingnewsnow.com/blog/2026/11/21/paramount-sleep-president-richard-fleck-talks-benefits-of-open-houses/",
+      "published_at": "2026-11-24",
+      "collected_at": "2026-11-24T11:06:23+08:00",
+      "source_type": "auto-rss",
+      "verification_status": "已核验",
+      "is_demo": false
+    },
+    {
+      "source": "bnn",
+      "category": "bedding-innovation",
+      "date": "2026-11-24",
+      "title": "Inside Duxiana’s North American strategy under MadaLuxe",
+      "titleEn": "Inside Duxiana’s North American strategy under MadaLuxe",
+      "summary": "On Oct. 30, MadaLuxe Group announced plans to acquire the North American distribution business of luxury bed and furnitu",
+      "url": "https://beddingnewsnow.com/blog/2026/11/21/inside-duxianas-north-american-strategy-under-madaluxe/",
+      "tags": [
+        "bedding"
+      ],
+      "id": "f2eba20a6b5fd",
+      "featured": false,
+      "source_url": "https://beddingnewsnow.com/blog/2026/11/21/inside-duxianas-north-american-strategy-under-madaluxe/",
+      "published_at": "2026-11-24",
+      "collected_at": "2026-11-24T11:06:23+08:00",
+      "source_type": "auto-rss",
+      "verification_status": "已核验",
+      "is_demo": false
+    },
+    {
+      "source": "bnn",
+      "category": "bedding-innovation",
+      "date": "2026-11-24",
+      "title": "Spring Air unveils aggressive 2027 new product, marketing strategies",
+      "titleEn": "Spring Air unveils aggressive 2027 new product, marketing strategies",
+      "summary": "Spring Air International recently gathered its licensees in Boston for its sixth annual North American Summit, where the",
+      "url": "https://beddingnewsnow.com/blog/2026/11/18/spring-air-unveils-aggressive-2027-new-product-marketing-strategies/",
+      "tags": [
+        "bedding"
+      ],
+      "id": "f3dc3d686b8be",
+      "featured": false,
+      "source_url": "https://beddingnewsnow.com/blog/2026/11/18/spring-air-unveils-aggressive-2027-new-product-marketing-strategies/",
+      "published_at": "2026-11-24",
+      "collected_at": "2026-11-24T11:06:23+08:00",
+      "source_type": "auto-rss",
+      "verification_status": "已核验",
+      "is_demo": false
+    },
+    {
+      "source": "bnn",
+      "category": "bedding-innovation",
+      "date": "2026-11-24",
+      "title": "Helix Sleep launches retail partnership with Denver Mattress Co.",
+      "titleEn": "Helix Sleep launches retail partnership with Denver Mattress Co.",
+      "summary": "Helix Sleep has announced a new retail partnership with Denver Mattress Co., marking a significant expansion of Helix’s ",
+      "url": "https://beddingnewsnow.com/blog/2026/11/18/helix-sleep-launches-retail-partnership-with-denver-mattress-company/",
+      "tags": [
+        "mattress",
+        "bedding"
+      ],
+      "id": "ff7e9be7b10ef",
+      "featured": false,
+      "source_url": "https://beddingnewsnow.com/blog/2026/11/18/helix-sleep-launches-retail-partnership-with-denver-mattress-company/",
+      "published_at": "2026-11-24",
+      "collected_at": "2026-11-24T11:06:23+08:00",
+      "source_type": "auto-rss",
+      "verification_status": "已核验",
+      "is_demo": false
+    },
+    {
+      "source": "bnn",
+      "category": "bedding-innovation",
+      "date": "2026-11-24",
+      "title": "Serta returns to Macy’s Thanksgiving Day Parade",
+      "titleEn": "Serta returns to Macy’s Thanksgiving Day Parade",
+      "summary": "Serta Simmons Bedding announced that Serta will return to Macy&#8217;s Thanksgiving Day Parade on Thursday, Nov. 26, bri",
+      "url": "https://beddingnewsnow.com/blog/2026/11/18/serta-returns-to-macys-thanksgiving-day-parade/",
+      "tags": [
+        "bedding"
+      ],
+      "id": "f73145d26cb04",
+      "featured": false,
+      "source_url": "https://beddingnewsnow.com/blog/2026/11/18/serta-returns-to-macys-thanksgiving-day-parade/",
+      "published_at": "2026-11-24",
+      "collected_at": "2026-11-24T11:06:23+08:00",
+      "source_type": "auto-rss",
+      "verification_status": "已核验",
+      "is_demo": false
+    },
     {
       "source": "bnn",
       "category": "bedding-innovation",
@@ -46,107 +204,6 @@
       "featured": false
     },
     {
-      "source": "bnn",
-      "category": "bedding-innovation",
-      "date": "2026-11-23",
-      "title": "Market reinforces imperative of in-store sales",
-      "titleEn": "Market reinforces imperative of in-store sales",
-      "summary": "Having recently spent a week looking at mattresses in showrooms, talking to mattress folks, testing out new mattresses h",
-      "url": "https://beddingnewsnow.com/blog/2026/11/21/market-reinforces-imperative-of-in-store-sales/",
-      "tags": [
-        "mattress",
-        "bedding"
-      ],
-      "id": "f5f5cd95d934f",
-      "featured": false
-    },
-    {
-      "source": "bnn",
-      "category": "bedding-innovation",
-      "date": "2026-11-23",
-      "title": "Muenkel Minutes: Unmasking the fear monster",
-      "titleEn": "Muenkel Minutes: Unmasking the fear monster",
-      "summary": "While building confidence in the outcome of a sale is important, it&#8217;s equally critical that salespeople remove the",
-      "url": "https://beddingnewsnow.com/blog/2026/11/21/muenkel-minutes-unmasking-the-fear-monster-2/",
-      "tags": [
-        "bedding"
-      ],
-      "id": "fccd304559245",
-      "featured": false
-    },
-    {
-      "source": "bnn",
-      "category": "bedding-innovation",
-      "date": "2026-11-23",
-      "title": "Paramount Sleep President Richard Fleck talks benefits of open houses",
-      "titleEn": "Paramount Sleep President Richard Fleck talks benefits of open houses",
-      "summary": "Open houses aren&#8217;t a new concept in the bedding industry, but they are few and far between. Richard Fleck sat down",
-      "url": "https://beddingnewsnow.com/blog/2026/11/21/paramount-sleep-president-richard-fleck-talks-benefits-of-open-houses/",
-      "tags": [
-        "bedding",
-        "down"
-      ],
-      "id": "f9a619a834632",
-      "featured": false
-    },
-    {
-      "source": "bnn",
-      "category": "bedding-innovation",
-      "date": "2026-11-23",
-      "title": "Inside Duxiana’s North American strategy under MadaLuxe",
-      "titleEn": "Inside Duxiana’s North American strategy under MadaLuxe",
-      "summary": "On Oct. 30, MadaLuxe Group acquired the North American distribution business of luxury bed and furniture brand Duxiana, ",
-      "url": "https://beddingnewsnow.com/blog/2026/11/21/inside-duxianas-north-american-strategy-under-madaluxe/",
-      "tags": [
-        "bedding"
-      ],
-      "id": "f2eba20a6b5fd",
-      "featured": false
-    },
-    {
-      "source": "bnn",
-      "category": "bedding-innovation",
-      "date": "2026-11-23",
-      "title": "Spring Air unveils aggressive 2027 new product, marketing strategies",
-      "titleEn": "Spring Air unveils aggressive 2027 new product, marketing strategies",
-      "summary": "Spring Air International recently gathered its licensees in Boston for its sixth annual North American Summit, where the",
-      "url": "https://beddingnewsnow.com/blog/2026/11/18/spring-air-unveils-aggressive-2027-new-product-marketing-strategies/",
-      "tags": [
-        "bedding"
-      ],
-      "id": "f3dc3d686b8be",
-      "featured": false
-    },
-    {
-      "source": "bnn",
-      "category": "bedding-innovation",
-      "date": "2026-11-23",
-      "title": "Helix Sleep launches retail partnership with Denver Mattress Co.",
-      "titleEn": "Helix Sleep launches retail partnership with Denver Mattress Co.",
-      "summary": "Helix Sleep has announced a new retail partnership with Denver Mattress Co., marking a significant expansion of Helix’s ",
-      "url": "https://beddingnewsnow.com/blog/2026/11/18/helix-sleep-launches-retail-partnership-with-denver-mattress-company/",
-      "tags": [
-        "mattress",
-        "bedding"
-      ],
-      "id": "ff7e9be7b10ef",
-      "featured": false
-    },
-    {
-      "source": "bnn",
-      "category": "bedding-innovation",
-      "date": "2026-11-23",
-      "title": "Serta returns to Macy’s Thanksgiving Day Parade",
-      "titleEn": "Serta returns to Macy’s Thanksgiving Day Parade",
-      "summary": "Serta Simmons Bedding announced that Serta will return to Macy&#8217;s Thanksgiving Day Parade on Thursday, Nov. 26, bri",
-      "url": "https://beddingnewsnow.com/blog/2026/11/18/serta-returns-to-macys-thanksgiving-day-parade/",
-      "tags": [
-        "bedding"
-      ],
-      "id": "f73145d26cb04",
-      "featured": false
-    },
-    {
       "source": "xhs",
       "category": "consumer-insight",
       "date": "2026-11-23",
@@ -160,7 +217,13 @@
         "平价床品"
       ],
       "id": "f1499a8c9404d",
-      "featured": false
+      "featured": false,
+      "source_url": "https://www.xiaohongshu.com/search_result?keyword=水洗棉四件套",
+      "published_at": "2026-11-23",
+      "collected_at": "2026-11-24T11:06:30+08:00",
+      "source_type": "inbox",
+      "verification_status": "待核验",
+      "is_demo": false
     }
   ]
 }
