@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-25T14:44:24+08:00",
+  "generatedAt": "2026-11-25T14:58:23+08:00",
   "total": 12,
   "changelog": {
-    "run_at": "2026-11-25T14:44:24+08:00",
+    "run_at": "2026-11-25T14:58:23+08:00",
     "new_count": 0,
     "total_after": 12,
     "sources_seen": [
@@ -44,7 +44,7 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
+      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
     },
     {
       "source": "bnn",
@@ -72,7 +72,7 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
+      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
     },
     {
       "source": "bnn",
@@ -101,7 +101,7 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
+      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
     },
     {
       "source": "bnn",
@@ -129,7 +129,7 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
+      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
     },
     {
       "source": "bnn",
@@ -157,7 +157,7 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
+      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
     },
     {
       "source": "bnn",
@@ -186,7 +186,7 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
+      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
     },
     {
       "source": "bnn",
@@ -215,7 +215,7 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
+      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
     },
     {
       "source": "bnn",
@@ -340,7 +340,7 @@
       "intel_type": "market-demand",
       "_legacy_category": "consumer-insight",
       "verification": "pending",
-      "last_collect_attempt": "2026-11-25T14:44:24+08:00"
+      "last_collect_attempt": "2026-11-25T14:58:23+08:00"
     }
   ]
 }

@@ -6,7 +6,7 @@
     "fullTextUrl": "https://openstd.samr.gov.cn/bzgk/gb/index",
     "infoServiceUrl": "https://std.samr.gov.cn"
   },
-  "generatedAt": "2026-11-25T14:46:21+08:00",
+  "generatedAt": "2026-11-25T15:00:10+08:00",
   "categories": [
     "四件套",
     "枕芯",
@@ -46,7 +46,7 @@
       "verification_status": "已核验",
       "verification_date": "2026-11-25",
       "verification_note": "发布/实施日期与检测项目依据公开资料记载，具体技术指标限值以标准原文为准，不复制受版权保护的全文内容。",
-      "collected_at": "2026-11-25T14:46:21+08:00",
+      "collected_at": "2026-11-25T15:00:10+08:00",
       "source_type": "manual-seed"
     },
     {
@@ -77,7 +77,7 @@
       "verification_status": "已核验",
       "verification_date": "2026-11-25",
       "verification_note": "名称与实施日期依据公开资料记载，检测项目为概括性描述，具体限值与适用年龄划分以标准原文为准。",
-      "collected_at": "2026-11-25T14:46:21+08:00",
+      "collected_at": "2026-11-25T15:00:10+08:00",
       "source_type": "manual-seed"
     },
     {
@@ -104,7 +104,7 @@
       "verification_status": "已核验",
       "verification_date": "2026-11-25",
       "verification_note": "标准名称依据公开资料记载，发布/实施日期未经平台核验，暂记为null，由每周核验脚本补全。",
-      "collected_at": "2026-11-25T14:46:21+08:00",
+      "collected_at": "2026-11-25T15:00:10+08:00",
       "source_type": "manual-seed"
     },
     {
@@ -130,7 +130,7 @@
       "verification_status": "已核验",
       "verification_date": "2026-11-25",
       "verification_note": "标准名称依据公开资料记载，发布/实施日期未经平台核验，暂记为null，由每周核验脚本补全。",
-      "collected_at": "2026-11-25T14:46:21+08:00",
+      "collected_at": "2026-11-25T15:00:10+08:00",
       "source_type": "manual-seed"
     },
     {
@@ -160,7 +160,7 @@
       "verification_status": "已核验",
       "verification_date": "2026-11-25",
       "verification_note": "标准名称依据公开资料记载，发布/实施日期及是否替代旧版未经平台核验。",
-      "collected_at": "2026-11-25T14:46:21+08:00",
+      "collected_at": "2026-11-25T15:00:10+08:00",
       "source_type": "manual-seed"
     },
     {
@@ -184,7 +184,7 @@
       "verification_status": "已核验",
       "verification_date": "2026-11-25",
       "verification_note": "本记录仅登记标准编号占位，所有字段待平台核验后补全，不预设任何内容以避免误导。",
-      "collected_at": "2026-11-25T14:46:21+08:00",
+      "collected_at": "2026-11-25T15:00:10+08:00",
       "source_type": "manual-seed"
     },
     {
@@ -214,7 +214,7 @@
       "verification_status": "已核验",
       "verification_date": "2026-11-25",
       "verification_note": "标准名称依据公开资料记载，发布/实施日期与替代关系未经平台核验，暂记为待核验/null。",
-      "collected_at": "2026-11-25T14:46:21+08:00",
+      "collected_at": "2026-11-25T15:00:10+08:00",
       "source_type": "manual-seed"
     },
     {
@@ -244,7 +244,7 @@
       "verification_status": "已核验",
       "verification_date": "2026-11-25",
       "verification_note": "本记录依据任务方提供的实施日期(2027-08-01)与前版编号关系建立；标准名称、发布日期、适用范围均待国家标准信息公共服务平台核验确认。在核验前，本条仅作为日期提醒使用。",
-      "collected_at": "2026-11-25T14:46:21+08:00",
+      "collected_at": "2026-11-25T15:00:10+08:00",
       "source_type": "manual-seed"
     }
   ],

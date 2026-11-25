@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T14:44:24+08:00",
+  "generatedAt": "2026-11-25T14:58:23+08:00",
   "sources": [
     {
       "source_id": "htt",
@@ -7,9 +7,9 @@
       "status": "success_no_items",
       "valid_items": 0,
       "error": "",
-      "checked_at": "2026-11-25T14:44:18+08:00",
+      "checked_at": "2026-11-25T14:58:16+08:00",
       "consecutive_failures": 0,
-      "last_success_at": "2026-11-25T14:44:18+08:00"
+      "last_success_at": "2026-11-25T14:58:16+08:00"
     },
     {
       "source_id": "bnn",
@@ -17,9 +17,9 @@
       "status": "success",
       "valid_items": 7,
       "error": "",
-      "checked_at": "2026-11-25T14:44:19+08:00",
+      "checked_at": "2026-11-25T14:58:17+08:00",
       "consecutive_failures": 0,
-      "last_success_at": "2026-11-25T14:44:19+08:00"
+      "last_success_at": "2026-11-25T14:58:17+08:00"
     },
     {
       "source_id": "cnhfa",
@@ -27,9 +27,9 @@
       "status": "success_no_items",
       "valid_items": 0,
       "error": "",
-      "checked_at": "2026-11-25T14:44:19+08:00",
+      "checked_at": "2026-11-25T14:58:17+08:00",
       "consecutive_failures": 0,
-      "last_success_at": "2026-11-25T14:44:19+08:00"
+      "last_success_at": "2026-11-25T14:58:17+08:00"
     },
     {
       "source_id": "heimtextil",
@@ -37,9 +37,9 @@
       "status": "success_no_items",
       "valid_items": 0,
       "error": "",
-      "checked_at": "2026-11-25T14:44:20+08:00",
+      "checked_at": "2026-11-25T14:58:18+08:00",
       "consecutive_failures": 0,
-      "last_success_at": "2026-11-25T14:44:20+08:00"
+      "last_success_at": "2026-11-25T14:58:18+08:00"
     },
     {
       "source_id": "intertextile",
@@ -47,9 +47,9 @@
       "status": "success_no_items",
       "valid_items": 0,
       "error": "",
-      "checked_at": "2026-11-25T14:44:21+08:00",
+      "checked_at": "2026-11-25T14:58:19+08:00",
       "consecutive_failures": 0,
-      "last_success_at": "2026-11-25T14:44:21+08:00"
+      "last_success_at": "2026-11-25T14:58:19+08:00"
     },
     {
       "source_id": "materials",
@@ -57,9 +57,9 @@
       "status": "success_no_items",
       "valid_items": 0,
       "error": "",
-      "checked_at": "2026-11-25T14:44:24+08:00",
+      "checked_at": "2026-11-25T14:58:23+08:00",
       "consecutive_failures": 0,
-      "last_success_at": "2026-11-25T14:44:24+08:00"
+      "last_success_at": "2026-11-25T14:58:23+08:00"
     },
     {
       "source_id": "wgsn",
@@ -67,9 +67,9 @@
       "status": "success_no_items",
       "valid_items": 0,
       "error": "",
-      "checked_at": "2026-11-25T14:44:24+08:00",
+      "checked_at": "2026-11-25T14:58:23+08:00",
       "consecutive_failures": 0,
-      "last_success_at": "2026-11-25T14:44:24+08:00"
+      "last_success_at": "2026-11-25T14:58:23+08:00"
     },
     {
       "source_id": "xhs",
@@ -77,9 +77,9 @@
       "status": "success",
       "valid_items": 1,
       "error": "",
-      "checked_at": "2026-11-25T14:44:24+08:00",
+      "checked_at": "2026-11-25T14:58:23+08:00",
       "consecutive_failures": 0,
-      "last_success_at": "2026-11-25T14:44:24+08:00"
+      "last_success_at": "2026-11-25T14:58:23+08:00"
     }
   ]
 }
