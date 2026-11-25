@@ -33,7 +33,7 @@ from datetime import datetime, timezone, timedelta, date
 from html.parser import HTMLParser
 from urllib import request as urlreq
 from urllib.error import URLError, HTTPError
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, parse_qsl, urlencode, quote
 import xml.etree.ElementTree as ET
 
 # ------------------------------------------------------------------
@@ -43,6 +43,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 INBOX_DIR = os.path.join(DATA_DIR, "inbox")
 NEWS_FILE = os.path.join(DATA_DIR, "news.json")
+HEALTH_FILE = os.path.join(DATA_DIR, "source_health.json")
 
 # ------------------------------------------------------------------
 # 信息源配置
@@ -446,9 +447,149 @@ def extract_tags(text, max_tags=4):
 # ------------------------------------------------------------------
 # 去重 & 合并
 # ------------------------------------------------------------------
+# ------------------------------------------------------------------
+# V2.1 归一化 / 指纹 / 三层 ID / 旧字段迁移 (与 js/taxonomy.js 保持一致)
+# ------------------------------------------------------------------
+def normalize_text_py(t):
+    """全半角归一 (同前端 Taxonomy.normalizeText): 全角转半角, 小写, 去首尾空格"""
+    if not t:
+        return ""
+    out = []
+    for ch in str(t):
+        code = ord(ch)
+        if 0xFF01 <= code <= 0xFF5E:
+            out.append(chr(code - 0xFEE0))
+        elif ch == "\u3000":
+            out.append(" ")
+        else:
+            out.append(ch)
+    return "".join(out).strip().lower()
+
+
+_TRACK_PREFIXES = ("utm_", "fbclid", "gclid", "referrer", "spm", "scm",
+                   "share_", "mc_cid", "mc_eid", "_hsenc", "_hsmi", "igshid", "si", "pp")
+
+
+def normalize_url(url):
+    """URL 归一 (同前端 Taxonomy.normalizeUrl): 去跟踪参数, 去 www., 去尾斜杠, 小写"""
+    if not url:
+        return ""
+    s = str(url).strip()
+    if not re.match(r"^https?://", s, re.I):
+        return normalize_text_py(s)
+    try:
+        p = urlparse(s)
+        kept = [(k, v) for k, v in parse_qsl(p.query, keep_blank_values=True)
+                if not (k.lower().startswith(_TRACK_PREFIXES) or k == "ref")]
+        query = urlencode(kept, quote_via=quote)
+        host = re.sub(r"^www\.", "", p.hostname or "")
+        path = p.path or ""
+        if path.endswith("/"):
+            path = path[:-1]
+        result = host + path
+        if query:
+            result += "?" + query
+        if p.fragment:
+            result += "#" + p.fragment
+        return result.lower()
+    except Exception:
+        return normalize_text_py(s.split("?")[0].split("#")[0])
+
+
+def short_hash12(s):
+    """12 位哈希 (同前端 Taxonomy.shortHash, 按 UTF-16 码元计算保证两端一致)"""
+    import struct
+    data = (s or "").encode("utf-16-le")
+    codes = struct.unpack("<%dH" % (len(data) // 2), data) if data else ()
+    h1, h2, mask = 0x811C9DC5, 0x1000193, 0xFFFFFFFF
+    for c in codes:
+        h1 = ((h1 ^ c) * 0x01000193) & mask
+        h2 = ((h2 + c) * 0x85EBCA6B) & mask
+    return (format(h1, "x") + format(h2, "x"))[:12]
+
+
+LEGACY_CATEGORY_MAP = {
+    "global-products": "product-launch",
+    "bedding-innovation": "product-launch",
+    "domestic-industry": "standard-regulation",
+    "global-trends": "industry-trend",
+    "supply-chain": "supply-chain-expo",
+    "materials-tech": "material-tech",
+    "future-trends": "industry-trend",
+    "consumer-insight": "market-demand",
+}
+
+_LEGACY_VERIFY_MAP = {
+    "\u5df2\u6838\u9a8c": "verified",
+    "\u90e8\u5206\u6838\u9a8c": "partially-verified",
+    "\u5f85\u6838\u9a8c": "pending",
+    "\u4fe1\u606f\u51b2\u7a81": "conflict",
+    "\u793a\u4f8b": "pending",
+}
+
+
+def migrate_legacy_fields(item):
+    """V2.0 category/verification_status 迁移到 V2.1 intel_type/verification (幂等)"""
+    cat = item.get("category")
+    if cat and not item.get("intel_type"):
+        item["intel_type"] = LEGACY_CATEGORY_MAP.get(cat, "unclassified")
+        item.setdefault("_legacy_category", cat)
+    if not item.get("verification"):
+        vs = item.get("verification_status")
+        item["verification"] = _LEGACY_VERIFY_MAP.get(vs, "pending") if vs else "pending"
+    return item
+
+
 def item_fingerprint(item):
-    key = (item.get("url", "") + "|" + item.get("title", "")).encode("utf-8")
-    return hashlib.md5(key).hexdigest()[:12]
+    """去重指纹: 以归一化 URL 为主键 (同址不同标题/翻译不重复); 无 URL 时用归一化标题"""
+    norm_url = normalize_url(item.get("source_url") or item.get("url", ""))
+    if norm_url:
+        return short_hash12(norm_url)
+    return short_hash12(normalize_text_py(item.get("title", "")))
+
+
+def assign_ids(item, fp=None):
+    """补齐三层 ID 与归一字段 (幂等, 同前端 Taxonomy.assignIds)"""
+    if fp is None:
+        fp = item_fingerprint(item)
+    if not item.get("id"):
+        item["id"] = "f" + fp
+    item.setdefault("event_id", item["id"])
+    norm = normalize_url(item.get("source_url") or item.get("url", ""))
+    item["_url_normalized"] = norm
+    item.setdefault("evidence_id", "ev-" + short_hash12(norm))
+    item.setdefault("entity_id", item["event_id"])
+    return item
+
+
+def load_health():
+    """读取上次来源健康记录, 用于连续失败计数"""
+    if os.path.exists(HEALTH_FILE):
+        try:
+            with open(HEALTH_FILE, "r", encoding="utf-8-sig") as f:
+                data = json.load(f)
+            return {h.get("source_id"): h for h in data.get("sources", [])}
+        except Exception:
+            return {}
+    return {}
+
+
+def _health_entry(prev_health, src, status, valid_items, error=""):
+    """单条来源健康记录 (status: success / success_no_items / failed)"""
+    prev = prev_health.get(src["id"], {})
+    now_cst = datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds")
+    fails = (prev.get("consecutive_failures") or 0) + 1 if status == "failed" else 0
+    last_ok = now_cst if status != "failed" else (prev.get("last_success_at") or "")
+    return {
+        "source_id": src["id"],
+        "source_type": src["type"],
+        "status": status,
+        "valid_items": valid_items,
+        "error": error or "",
+        "checked_at": now_cst,
+        "consecutive_failures": fails,
+        "last_success_at": last_ok,
+    }
 
 
 def load_existing():
@@ -466,13 +607,19 @@ def merge(existing, fresh, keep_days=90):
     """合并新旧数据, 按指纹去重, 保留近 keep_days 天"""
     by_fp = {}
     for it in existing:
-        by_fp[item_fingerprint(it)] = it
+        fp0 = item_fingerprint(it)
+        assign_ids(it, fp0)
+        migrate_legacy_fields(it)
+        it.setdefault("last_collect_attempt", it.get("collected_at", ""))
+        by_fp[fp0] = it
     new_count = 0
     for it in fresh:
         fp = item_fingerprint(it)
         if fp not in by_fp:
-            it["id"] = "f" + fp
             it["featured"] = False
+            assign_ids(it, fp)
+            migrate_legacy_fields(it)
+            it.setdefault("last_collect_attempt", it.get("collected_at", ""))
             by_fp[fp] = it
             new_count += 1
         else:
@@ -488,6 +635,10 @@ def merge(existing, fresh, keep_days=90):
             old.setdefault("source_type", it.get("source_type", "legacy"))
             old.setdefault("verification_status", it.get("verification_status", "待核验"))
             old.setdefault("is_demo", False)
+            assign_ids(old)
+            migrate_legacy_fields(old)
+            if it.get("collected_at"):
+                old["last_collect_attempt"] = it["collected_at"]
     cutoff = (date.today() - timedelta(days=keep_days)).isoformat()
     items = [v for v in by_fp.values() if v.get("date", "") >= cutoff]
     items.sort(key=lambda x: x.get("date", ""), reverse=True)
@@ -507,9 +658,12 @@ def main():
 
     targets = [s for s in SOURCES if not args.source or s["id"] in args.source]
     fresh = []
+    prev_health = load_health()
+    health = []
     for src in targets:
         log(f"=== 采集 [{src['id']}] {src['type']} ===")
         collected = []
+        status, err = "success", ""
         try:
             if src["type"] == "rss":
                 collected = collect_rss(src)
@@ -519,8 +673,12 @@ def main():
                 collected = collect_inbox(src)
         except Exception as e:
             log(f"[{src['id']}] 采集异常: {e}", "ERROR")
+            status, err = "failed", str(e)
+        if status == "success" and not collected:
+            status = "success_no_items"
         log(f"[{src['id']}] 有效条目 {len(collected)} 条")
         fresh.extend(collected)
+        health.append(_health_entry(prev_health, src, status, len(collected), err))
 
     existing = load_existing()
     try:
@@ -572,6 +730,16 @@ def main():
                 pass
         return 1
     log(f"已写入 {NEWS_FILE} (备份: {bak_file}, 新增 {new_count} 条)")
+
+    # F09: 来源健康记录 (单源失败不阻断部署)
+    try:
+        now_h = datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds")
+        with open(HEALTH_FILE + ".tmp", "w", encoding="utf-8") as f:
+            json.dump({"generatedAt": now_h, "sources": health}, f, ensure_ascii=False, indent=2)
+        os.replace(HEALTH_FILE + ".tmp", HEALTH_FILE)
+        log(f"来源健康记录已写入 {HEALTH_FILE} ({len(health)} 源)")
+    except Exception as e:
+        log(f"写来源健康记录失败 (不阻断): {e}", "WARN")
     return 0
 
 

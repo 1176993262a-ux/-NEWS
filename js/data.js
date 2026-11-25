@@ -15,16 +15,11 @@ const SOURCES = [
   { id: "xhs",        name: "小红书",                 nameCn: "消费者社区",     focus: "消费者真实需求、新品牌",   freq: "每周",   color: "#ff2442", baseUrl: "https://www.xiaohongshu.com" },
 ];
 
-const CATEGORIES = [
-  { id: "global-products",    name: "全球新品牌·新产品" },
-  { id: "bedding-innovation", name: "床品细分创新" },
-  { id: "domestic-industry",  name: "国内行业·标准" },
-  { id: "global-trends",      name: "全球趋势·新材料" },
-  { id: "supply-chain",       name: "供应链·展会" },
-  { id: "materials-tech",     name: "新材料·新技术" },
-  { id: "future-trends",      name: "未来消费·设计趋势" },
-  { id: "consumer-insight",   name: "消费者洞察" },
-];
+// V2.1: 分类字典移至 js/taxonomy.js
+// 旧编辑性 category 经 LEGACY_CATEGORY_MAP 迁移, 未匹配归待分类
+const CATEGORIES = TAXONOMY.intel_type.values.map(v => ({ id: v.id, name: v.name }));
+const UNCATEGORIZED = { id: "unclassified", name: "待分类" };
+
 
 const SAMPLE_NEWS = [
   // ---------- 今日 ----------
@@ -273,4 +268,11 @@ async function loadNewsData() {
 }
 
 function getSource(id) { return SOURCES.find(s => s.id === id) || {}; }
-function getCategory(id) { return CATEGORIES.find(c => c.id === id) || {}; }
+function getCategory(id) {
+  const v = Taxonomy.findById("intel_type", id);
+  if (v) return { id: v.id, name: v.name };
+  if (id === "unclassified" || !id) return UNCATEGORIZED;
+  const mapped = LEGACY_CATEGORY_MAP[id];
+  if (mapped) { const m = Taxonomy.findById("intel_type", mapped); return m ? { id: m.id, name: m.name } : UNCATEGORIZED; }
+  return UNCATEGORIZED; // 无法映射归待分类, 不丢数据显示原 id
+}

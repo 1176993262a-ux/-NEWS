@@ -1,0 +1,5 @@
+{
+  "generatedAt": "",
+  "sources": [],
+  "note": "占位文件：首次 GitHub Actions 采集后由 scripts/collect_news.py 自动生成本周/当日来源健康记录（status / valid_items / consecutive_failures 等）。这不是假数据，在真实采集运行前保持空状态。"
+}
