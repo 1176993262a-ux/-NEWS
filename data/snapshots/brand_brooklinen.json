@@ -1,9 +1,21 @@
 {
   "urls": {
+    "https://www.brooklinen.com/products/super-fluff-throw-blanket?variant=44105230221402": "Super Fluff Throw now at 40% off!",
     "https://www.brooklinen.com/collections/all-sheets": "All Sheets",
     "https://www.brooklinen.com/pages/all-bed": "All Bedding",
     "https://www.brooklinen.com/collections/duvet-inserts-pillows": "Duvet Inserts & Pillows",
+    "https://www.brooklinen.com/collections/holiday-gift-guide?filter.p.m.filter.product-type-list=Robes": "Robes",
+    "https://www.brooklinen.com/collections/holiday-gift-guide?filter.p.m.filter.product-type-list=Sheet+Sets&filter.p.m.filter.product-type-list=Duvet+Covers&filter.p.m.filter.product-type-list=Pillowcases": "Best Sheets Ever",
+    "https://www.brooklinen.com/collections/holiday-gift-guide?filter.p.m.filter.product-type-list=Bed+Blankets&filter.p.m.filter.product-type-list=Throw+Blankets&filter.p.m.filter.product-type-list=Quilts": "Blankets & Throws",
+    "https://www.brooklinen.com/collections/holiday-gift-guide?filter.p.m.filter.product-type-list=Eyemasks&filter.p.m.filter.product-type-list=Slippers&filter.p.m.filter.product-type-list=Bathroom+Accessories&filter.p.m.filter.product-type-list=Robes&filter.p.m.filter.product-type-list=Scrunchies": "Accessories",
+    "https://www.brooklinen.com/collections/holiday-gift-guide?filter.p.m.filter.product-type-list=Eyemasks&filter.p.m.filter.product-type-list=Scrunchies&filter.p.m.filter.product-type-list=Home+Fragrance&filter.p.m.filter.product-type-list=Slippers&filter.p.m.filter.product-type-list=Bathroom+Accessories": "Little Luxuries",
     "https://www.brooklinen.com/products/rise-ai-giftcard": "E-Gift Card",
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Luxe+Sateen": "Luxe Sateen Luxuriously soft, smooth",
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Classic+Percale": "Classic Percale <!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}-->Wonderfully crisp, cool",
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Washed+Classic+Percale": "Washed Classic Percale <!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}-->Perfectly lived in, breat",
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Washed+European+Linen": "Washed European Linen <!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}-->Super airy, relaxed",
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Heathered+Cashmere": "Heathered Cashmere <!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}-->Supremely warm, indulgent",
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Brushed+Flannel": "Brushed Flannel Cozy, breathable, nostalgic.",
     "https://www.brooklinen.com/collections/luxe-sateen-sheets": "Luxe Sateen Luxuriously soft, smooth",
     "https://www.brooklinen.com/collections/classic-percale-sheets": "Classic Percale Wonderfully crisp, cool",
     "https://www.brooklinen.com/collections/washed-classic-sheets": "Washed Classic Percale Perfectly lived in, breathable",
@@ -21,7 +33,19 @@
     "https://www.brooklinen.com/collections/washed-classic-sheets": true,
     "https://www.brooklinen.com/collections/washed-linen-sheets": true,
     "https://www.brooklinen.com/collections/heathered-cashmere-sheets": true,
-    "https://www.brooklinen.com/collections/brushed-flannel-sheets": true
+    "https://www.brooklinen.com/collections/brushed-flannel-sheets": true,
+    "https://www.brooklinen.com/products/super-fluff-throw-blanket?variant=44105230221402": true,
+    "https://www.brooklinen.com/collections/holiday-gift-guide?filter.p.m.filter.product-type-list=Robes": true,
+    "https://www.brooklinen.com/collections/holiday-gift-guide?filter.p.m.filter.product-type-list=Sheet+Sets&filter.p.m.filter.product-type-list=Duvet+Covers&filter.p.m.filter.product-type-list=Pillowcases": true,
+    "https://www.brooklinen.com/collections/holiday-gift-guide?filter.p.m.filter.product-type-list=Bed+Blankets&filter.p.m.filter.product-type-list=Throw+Blankets&filter.p.m.filter.product-type-list=Quilts": true,
+    "https://www.brooklinen.com/collections/holiday-gift-guide?filter.p.m.filter.product-type-list=Eyemasks&filter.p.m.filter.product-type-list=Slippers&filter.p.m.filter.product-type-list=Bathroom+Accessories&filter.p.m.filter.product-type-list=Robes&filter.p.m.filter.product-type-list=Scrunchies": true,
+    "https://www.brooklinen.com/collections/holiday-gift-guide?filter.p.m.filter.product-type-list=Eyemasks&filter.p.m.filter.product-type-list=Scrunchies&filter.p.m.filter.product-type-list=Home+Fragrance&filter.p.m.filter.product-type-list=Slippers&filter.p.m.filter.product-type-list=Bathroom+Accessories": true,
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Luxe+Sateen": true,
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Classic+Percale": true,
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Washed+Classic+Percale": true,
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Washed+European+Linen": true,
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Heathered+Cashmere": true,
+    "https://www.brooklinen.com/collections/all-sheets?filter.p.m.filter.fabric=Brushed+Flannel": true
   },
-  "updated_at": "2026-11-24T00:32:34+08:00"
+  "updated_at": "2026-11-25T14:44:24+08:00"
 }

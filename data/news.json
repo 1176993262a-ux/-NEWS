@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-25T14:25:18+08:00",
+  "generatedAt": "2026-11-25T14:44:24+08:00",
   "total": 12,
   "changelog": {
-    "run_at": "2026-11-25T14:25:18+08:00",
-    "new_count": 1,
+    "run_at": "2026-11-25T14:44:24+08:00",
+    "new_count": 0,
     "total_after": 12,
     "sources_seen": [
       "htt",
@@ -36,7 +36,15 @@
       "collected_at": "2026-11-24T11:06:23+08:00",
       "source_type": "auto-rss",
       "verification_status": "已核验",
-      "is_demo": false
+      "is_demo": false,
+      "event_id": "f5f5cd95d934f",
+      "_url_normalized": "beddingnewsnow.com/blog/2026/11/21/market-reinforces-imperative-of-in-store-sales",
+      "evidence_id": "ev-4a58afdddb00",
+      "entity_id": "f5f5cd95d934f",
+      "intel_type": "product-launch",
+      "_legacy_category": "bedding-innovation",
+      "verification": "verified",
+      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
     },
     {
       "source": "bnn",
@@ -56,7 +64,15 @@
       "collected_at": "2026-11-24T11:06:23+08:00",
       "source_type": "auto-rss",
       "verification_status": "已核验",
-      "is_demo": false
+      "is_demo": false,
+      "event_id": "fccd304559245",
+      "_url_normalized": "beddingnewsnow.com/blog/2026/11/21/muenkel-minutes-unmasking-the-fear-monster-2",
+      "evidence_id": "ev-575cbe8ae927",
+      "entity_id": "fccd304559245",
+      "intel_type": "product-launch",
+      "_legacy_category": "bedding-innovation",
+      "verification": "verified",
+      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
     },
     {
       "source": "bnn",
@@ -77,7 +93,15 @@
       "collected_at": "2026-11-24T11:06:23+08:00",
       "source_type": "auto-rss",
       "verification_status": "已核验",
-      "is_demo": false
+      "is_demo": false,
+      "event_id": "f9a619a834632",
+      "_url_normalized": "beddingnewsnow.com/blog/2026/11/21/paramount-sleep-president-richard-fleck-talks-benefits-of-open-houses",
+      "evidence_id": "ev-f6486a7e9522",
+      "entity_id": "f9a619a834632",
+      "intel_type": "product-launch",
+      "_legacy_category": "bedding-innovation",
+      "verification": "verified",
+      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
     },
     {
       "source": "bnn",
@@ -97,7 +121,15 @@
       "collected_at": "2026-11-24T11:06:23+08:00",
       "source_type": "auto-rss",
       "verification_status": "已核验",
-      "is_demo": false
+      "is_demo": false,
+      "event_id": "f2eba20a6b5fd",
+      "_url_normalized": "beddingnewsnow.com/blog/2026/11/21/inside-duxianas-north-american-strategy-under-madaluxe",
+      "evidence_id": "ev-7b3dbb1e29a5",
+      "entity_id": "f2eba20a6b5fd",
+      "intel_type": "product-launch",
+      "_legacy_category": "bedding-innovation",
+      "verification": "verified",
+      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
     },
     {
       "source": "bnn",
@@ -117,7 +149,15 @@
       "collected_at": "2026-11-24T11:06:23+08:00",
       "source_type": "auto-rss",
       "verification_status": "已核验",
-      "is_demo": false
+      "is_demo": false,
+      "event_id": "f3dc3d686b8be",
+      "_url_normalized": "beddingnewsnow.com/blog/2026/11/18/spring-air-unveils-aggressive-2027-new-product-marketing-strategies",
+      "evidence_id": "ev-8bfa4a605348",
+      "entity_id": "f3dc3d686b8be",
+      "intel_type": "product-launch",
+      "_legacy_category": "bedding-innovation",
+      "verification": "verified",
+      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
     },
     {
       "source": "bnn",
@@ -138,7 +178,15 @@
       "collected_at": "2026-11-24T11:06:23+08:00",
       "source_type": "auto-rss",
       "verification_status": "已核验",
-      "is_demo": false
+      "is_demo": false,
+      "event_id": "ff7e9be7b10ef",
+      "_url_normalized": "beddingnewsnow.com/blog/2026/11/18/helix-sleep-launches-retail-partnership-with-denver-mattress-company",
+      "evidence_id": "ev-b8208eeb294d",
+      "entity_id": "ff7e9be7b10ef",
+      "intel_type": "product-launch",
+      "_legacy_category": "bedding-innovation",
+      "verification": "verified",
+      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
     },
     {
       "source": "bnn",
@@ -159,7 +207,15 @@
       "verification_status": "已核验",
       "is_demo": false,
       "id": "fdfe8f8739afa",
-      "featured": false
+      "featured": false,
+      "event_id": "fdfe8f8739afa",
+      "_url_normalized": "beddingnewsnow.com/blog/2026/11/24/wake-up-call-view-from-the-top-with-somnigroup-cmo-tom-murray",
+      "evidence_id": "ev-88b0568c2ef9",
+      "entity_id": "fdfe8f8739afa",
+      "intel_type": "product-launch",
+      "_legacy_category": "bedding-innovation",
+      "verification": "verified",
+      "last_collect_attempt": "2026-11-25T14:44:18+08:00"
     },
     {
       "source": "bnn",
@@ -179,7 +235,15 @@
       "collected_at": "2026-11-24T11:06:23+08:00",
       "source_type": "auto-rss",
       "verification_status": "已核验",
-      "is_demo": false
+      "is_demo": false,
+      "event_id": "f73145d26cb04",
+      "_url_normalized": "beddingnewsnow.com/blog/2026/11/18/serta-returns-to-macys-thanksgiving-day-parade",
+      "evidence_id": "ev-9dff241ac654",
+      "entity_id": "f73145d26cb04",
+      "intel_type": "product-launch",
+      "_legacy_category": "bedding-innovation",
+      "verification": "verified",
+      "last_collect_attempt": "2026-11-24T11:06:23+08:00"
     },
     {
       "source": "bnn",
@@ -193,7 +257,15 @@
         "bedding"
       ],
       "id": "f9cc125df0452",
-      "featured": false
+      "featured": false,
+      "event_id": "f9cc125df0452",
+      "_url_normalized": "beddingnewsnow.com/blog/2026/11/21/field-sales-representative-serta-simmons-bedding",
+      "evidence_id": "ev-d6aff072db3a",
+      "entity_id": "f9cc125df0452",
+      "intel_type": "product-launch",
+      "_legacy_category": "bedding-innovation",
+      "verification": "pending",
+      "last_collect_attempt": ""
     },
     {
       "source": "bnn",
@@ -207,7 +279,15 @@
         "bedding"
       ],
       "id": "f7a3e92699db0",
-      "featured": false
+      "featured": false,
+      "event_id": "f7a3e92699db0",
+      "_url_normalized": "beddingnewsnow.com/blog/2026/11/21/retail-brand-director-purple",
+      "evidence_id": "ev-2ffab617eb2a",
+      "entity_id": "f7a3e92699db0",
+      "intel_type": "product-launch",
+      "_legacy_category": "bedding-innovation",
+      "verification": "pending",
+      "last_collect_attempt": ""
     },
     {
       "source": "bnn",
@@ -222,7 +302,15 @@
         "bedding"
       ],
       "id": "f30f531bcaa7e",
-      "featured": false
+      "featured": false,
+      "event_id": "f30f531bcaa7e",
+      "_url_normalized": "beddingnewsnow.com/blog/2026/11/21/mattress-specialist-in-store-sleep-expert-wayfair",
+      "evidence_id": "ev-c695366c147d",
+      "entity_id": "f30f531bcaa7e",
+      "intel_type": "product-launch",
+      "_legacy_category": "bedding-innovation",
+      "verification": "pending",
+      "last_collect_attempt": ""
     },
     {
       "source": "xhs",
@@ -244,7 +332,15 @@
       "collected_at": "2026-11-24T11:06:30+08:00",
       "source_type": "inbox",
       "verification_status": "待核验",
-      "is_demo": false
+      "is_demo": false,
+      "event_id": "f1499a8c9404d",
+      "_url_normalized": "xiaohongshu.com/search_result?keyword=%e6%b0%b4%e6%b4%97%e6%a3%89%e5%9b%9b%e4%bb%b6%e5%a5%97",
+      "evidence_id": "ev-2adebe54926a",
+      "entity_id": "f1499a8c9404d",
+      "intel_type": "market-demand",
+      "_legacy_category": "consumer-insight",
+      "verification": "pending",
+      "last_collect_attempt": "2026-11-25T14:44:24+08:00"
     }
   ]
 }
