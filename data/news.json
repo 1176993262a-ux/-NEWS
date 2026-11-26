@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-25T14:58:23+08:00",
+  "generatedAt": "2026-11-26T14:17:15+08:00",
   "total": 12,
   "changelog": {
-    "run_at": "2026-11-25T14:58:23+08:00",
+    "run_at": "2026-11-26T14:17:15+08:00",
     "new_count": 0,
     "total_after": 12,
     "sources_seen": [
@@ -20,7 +20,7 @@
     {
       "source": "bnn",
       "category": "bedding-innovation",
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "title": "Market reinforces imperative of in-store sales",
       "titleEn": "Market reinforces imperative of in-store sales",
       "summary": "Having recently spent a week looking at mattresses in showrooms, talking to mattress folks, testing out new mattresses h",
@@ -44,12 +44,12 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
+      "last_collect_attempt": "2026-11-26T14:17:08+08:00"
     },
     {
       "source": "bnn",
       "category": "bedding-innovation",
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "title": "Muenkel Minutes: Unmasking the fear monster",
       "titleEn": "Muenkel Minutes: Unmasking the fear monster",
       "summary": "While building confidence in the outcome of a sale is important, it&#8217;s equally critical that salespeople remove the",
@@ -72,12 +72,12 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
+      "last_collect_attempt": "2026-11-26T14:17:08+08:00"
     },
     {
       "source": "bnn",
       "category": "bedding-innovation",
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "title": "Paramount Sleep President Richard Fleck talks benefits of open houses",
       "titleEn": "Paramount Sleep President Richard Fleck talks benefits of open houses",
       "summary": "Open houses aren&#8217;t a new concept in the bedding industry, but they are few and far between. Richard Fleck sat down",
@@ -101,12 +101,12 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
+      "last_collect_attempt": "2026-11-26T14:17:08+08:00"
     },
     {
       "source": "bnn",
       "category": "bedding-innovation",
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "title": "Inside Duxiana’s North American strategy under MadaLuxe",
       "titleEn": "Inside Duxiana’s North American strategy under MadaLuxe",
       "summary": "On Oct. 30, MadaLuxe Group announced plans to acquire the North American distribution business of luxury bed and furnitu",
@@ -129,12 +129,12 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
+      "last_collect_attempt": "2026-11-26T14:17:08+08:00"
     },
     {
       "source": "bnn",
       "category": "bedding-innovation",
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "title": "Spring Air unveils aggressive 2027 new product, marketing strategies",
       "titleEn": "Spring Air unveils aggressive 2027 new product, marketing strategies",
       "summary": "Spring Air International recently gathered its licensees in Boston for its sixth annual North American Summit, where the",
@@ -157,12 +157,12 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
+      "last_collect_attempt": "2026-11-26T14:17:08+08:00"
     },
     {
       "source": "bnn",
       "category": "bedding-innovation",
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "title": "Helix Sleep launches retail partnership with Denver Mattress Co.",
       "titleEn": "Helix Sleep launches retail partnership with Denver Mattress Co.",
       "summary": "Helix Sleep has announced a new retail partnership with Denver Mattress Co., marking a significant expansion of Helix’s ",
@@ -186,12 +186,12 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
+      "last_collect_attempt": "2026-11-26T14:17:08+08:00"
     },
     {
       "source": "bnn",
       "category": "bedding-innovation",
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "title": "Wake-Up Call: View from the top with Somnigroup CMO Tom Murray",
       "titleEn": "Wake-Up Call: View from the top with Somnigroup CMO Tom Murray",
       "summary": "In the first installment of our View From The Top series, Mark and Mike are joined by Tom Murray, CMO of Somnigroup, who",
@@ -215,7 +215,7 @@
       "intel_type": "product-launch",
       "_legacy_category": "bedding-innovation",
       "verification": "verified",
-      "last_collect_attempt": "2026-11-25T14:58:16+08:00"
+      "last_collect_attempt": "2026-11-26T14:17:08+08:00"
     },
     {
       "source": "bnn",
@@ -340,7 +340,7 @@
       "intel_type": "market-demand",
       "_legacy_category": "consumer-insight",
       "verification": "pending",
-      "last_collect_attempt": "2026-11-25T14:58:23+08:00"
+      "last_collect_attempt": "2026-11-26T14:17:15+08:00"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "module": "brand_products",
   "description": "国内外床品品牌新品数据库：每日由 scripts/collect_brand_products.py 巡检品牌官网与官方旗舰店公开商品信息，通过页面快照对比识别新品。当前 items 为空属正常状态——首次联网采集后自动填充，绝不预置虚构商品。",
-  "generatedAt": "2026-11-25T14:58:23+08:00",
-  "lastCheckAt": "2026-11-25T14:58:23+08:00",
+  "generatedAt": "2026-11-26T14:17:15+08:00",
+  "lastCheckAt": "2026-11-26T14:17:15+08:00",
   "brandCount": 17,
   "categories": [
     "四件套",
@@ -410,90 +410,119 @@
       "source_platform": "品牌官网",
       "verification_status": "待核验",
       "is_demo": false
+    },
+    {
+      "id": "bp-520928e548",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "被芯",
+      "name": "Down Duvet Insert",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/down-duvet",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-26T14:17:15+08:00",
+      "collected_at": "2026-11-26T14:17:15+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
     }
   ],
   "snapshotStatus": {
     "luolai": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "mercury": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "fuanna": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "mengjie": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "beyond": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "atour-planet": {
       "products_seen": 0,
       "new_found": 0,
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "yanxuan": {
       "products_seen": 0,
       "new_found": 0,
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "8h": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "ikea": {
       "products_seen": 5,
       "new_found": 0,
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "muji": {
       "error": "The read operation timed out",
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "nitori": {
       "products_seen": 34,
       "new_found": 0,
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "zara-home": {
       "products_seen": 0,
       "new_found": 0,
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "hm-home": {
       "error": "HTTP Error 403: Forbidden",
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     },
     "brooklinen": {
-      "products_seen": 22,
+      "products_seen": 21,
       "new_found": 0,
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00",
+      "gone_count": 1
     },
     "parachute": {
-      "products_seen": 403,
-      "new_found": 0,
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "products_seen": 406,
+      "new_found": 1,
+      "checked_at": "2026-11-26T14:17:15+08:00",
+      "gone_count": 8
     },
     "quince": {
-      "products_seen": 41,
+      "products_seen": 38,
       "new_found": 0,
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00",
+      "gone_count": 3
     },
     "bed-threads": {
       "error": "HTTP Error 403: Forbidden",
-      "checked_at": "2026-11-25T14:58:23+08:00"
+      "checked_at": "2026-11-26T14:17:15+08:00"
     }
   },
   "sourcePolicy": {
