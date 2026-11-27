@@ -1,11 +1,9 @@
 {
   "urls": {
-    "https://quince.com/shop/everyday-steals": "Everyday Steals",
-    "https://quince.com/shop/gifts/under-$50": "SHOP NOW",
-    "https://quince.com/shop/women/cashmere": "SHOP NOW",
-    "https://quince.com/shop/beauty-and-wellness/premium-brands-deals": "SHOP DEALS",
+    "https://quince.com/shop/black-friday-deals": "Shop Now",
     "https://quince.com/shop/women/sweaters": "Sweaters",
     "https://quince.com/shop/women/bags-&-leather-goods": "Bags",
+    "https://quince.com/shop/women/cashmere": "Cashmere",
     "https://quince.com/shop/women/jewelry": "Jewelry",
     "https://quince.com/shop/women/shirts-&-blouses": "Tops",
     "https://quince.com/shop/women/shoes": "Shoes",
@@ -32,6 +30,8 @@
     "https://quince.com/shop/baby-&-kids/toddler-girl": "Toddler Girl",
     "https://quince.com/shop/baby-&-kids/boys": "Boys",
     "https://quince.com/shop/baby-&-kids/girls": "Girls",
+    "https://quince.com/shop/everyday-steals": "SHOP NOW",
+    "https://quince.com/shop/gifts/under-$50": "SHOP NOW",
     "https://quince.com/shop/all/new-arrivals": "SHOP NOW",
     "https://quince.com/home/wool-camp-blanket?color=sage%2Fivory-stripe": "Sage/Ivory Stripe Wool Camp Blanket",
     "https://quince.com/women/featherless-quilted-packable-long-puffer-vest?color=verdant-pine": "Verdant Pine Featherless Quilted Packable Long Puffer Vest",
@@ -80,7 +80,8 @@
     "https://quince.com/shop/dressed-in-holiday-style/shop-all": true,
     "https://quince.com/shop/home/best-sellers?trafficSource=footer": true,
     "https://quince.com/shop/women/jewelry?trafficSource=footer": true,
-    "https://quince.com/bedding-101?trafficSource=footer": true
+    "https://quince.com/bedding-101?trafficSource=footer": true,
+    "https://quince.com/shop/black-friday-deals": true
   },
-  "updated_at": "2026-11-26T14:17:15+08:00"
+  "updated_at": "2026-11-27T14:06:32+08:00"
 }

@@ -1,8 +1,8 @@
 {
   "module": "brand_products",
   "description": "国内外床品品牌新品数据库：每日由 scripts/collect_brand_products.py 巡检品牌官网与官方旗舰店公开商品信息，通过页面快照对比识别新品。当前 items 为空属正常状态——首次联网采集后自动填充，绝不预置虚构商品。",
-  "generatedAt": "2026-11-26T14:17:15+08:00",
-  "lastCheckAt": "2026-11-26T14:17:15+08:00",
+  "generatedAt": "2026-11-27T14:06:32+08:00",
+  "lastCheckAt": "2026-11-27T14:06:32+08:00",
   "brandCount": 17,
   "categories": [
     "四件套",
@@ -436,93 +436,378 @@
       "source_platform": "品牌官网",
       "verification_status": "待核验",
       "is_demo": false
+    },
+    {
+      "id": "bp-249ee043d9",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "毛浴巾",
+      "name": "Organic Plush Towels",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/organic-plush-towels-adobe",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-27T14:06:32+08:00",
+      "collected_at": "2026-11-27T14:06:32+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
+    },
+    {
+      "id": "bp-94aee5375a",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "毛浴巾",
+      "name": "Organic Plush Towels, White",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/organic-plush-towels-white",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-27T14:06:32+08:00",
+      "collected_at": "2026-11-27T14:06:32+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
+    },
+    {
+      "id": "bp-9663ddab81",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "毛浴巾",
+      "name": "Organic Plush Towels, Bone",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/organic-plush-towels-bone",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-27T14:06:32+08:00",
+      "collected_at": "2026-11-27T14:06:32+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
+    },
+    {
+      "id": "bp-7c29a90a2e",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "床笠",
+      "name": "Percale Fitted Sheet, Bone",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/percale-fitted-sheet-bone",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-27T14:06:32+08:00",
+      "collected_at": "2026-11-27T14:06:32+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
+    },
+    {
+      "id": "bp-3d664e0994",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "毛浴巾",
+      "name": "Organic Resort Stripe Towels, Sage with Russet",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/organic-resort-stripe-towels-sage-with-russet",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-27T14:06:32+08:00",
+      "collected_at": "2026-11-27T14:06:32+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
+    },
+    {
+      "id": "bp-1de13c365d",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "毛浴巾",
+      "name": "Organic Cotton Mosaic Towels, Moss and Dusk",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/organic-cotton-mosaic-towels-moss-and-dusk",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-27T14:06:32+08:00",
+      "collected_at": "2026-11-27T14:06:32+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
+    },
+    {
+      "id": "bp-ceb5b99195",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "床笠",
+      "name": "Brushed Cotton Fitted Sheet",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/brushed-cotton-fitted-sheet-dusk",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-27T14:06:32+08:00",
+      "collected_at": "2026-11-27T14:06:32+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
+    },
+    {
+      "id": "bp-5d10eac52d",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "床笠",
+      "name": "Brushed Cotton Fitted Sheet, White",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/brushed-cotton-fitted-sheet-white",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-27T14:06:32+08:00",
+      "collected_at": "2026-11-27T14:06:32+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
+    },
+    {
+      "id": "bp-ee64e7c7d6",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "床笠",
+      "name": "Brushed Cotton Fitted Sheet, Bone",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/brushed-cotton-fitted-sheet-bone",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-27T14:06:32+08:00",
+      "collected_at": "2026-11-27T14:06:32+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
+    },
+    {
+      "id": "bp-7cfed8ea87",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "床笠",
+      "name": "Brushed Cotton Fitted Sheet",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/brushed-cotton-fitted-sheet-moss",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-27T14:06:32+08:00",
+      "collected_at": "2026-11-27T14:06:32+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
+    },
+    {
+      "id": "bp-3ba85e8b61",
+      "brand": "parachute",
+      "brand_name": "Parachute",
+      "country": "美国",
+      "category": "毛浴巾",
+      "name": "Organic Resort Stripe Towels",
+      "model": null,
+      "series": null,
+      "price": null,
+      "currency": null,
+      "sizes": null,
+      "material": null,
+      "filling": null,
+      "craft": null,
+      "features": [],
+      "image_url": null,
+      "product_url": "https://www.parachutehome.com/products/organic-resort-stripe-towels-ink-with-tobacco",
+      "official_release_date": null,
+      "first_detected_at": "2026-11-27T14:06:32+08:00",
+      "collected_at": "2026-11-27T14:06:32+08:00",
+      "change_type": "new",
+      "source_platform": "品牌官网",
+      "verification_status": "待核验",
+      "is_demo": false
     }
   ],
   "snapshotStatus": {
     "luolai": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "mercury": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "fuanna": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "mengjie": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "beyond": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "atour-planet": {
       "products_seen": 0,
       "new_found": 0,
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "yanxuan": {
       "products_seen": 0,
       "new_found": 0,
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "8h": {
       "skipped": true,
       "reason": "official_site 未配置",
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "ikea": {
       "products_seen": 5,
       "new_found": 0,
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "muji": {
       "error": "The read operation timed out",
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "nitori": {
       "products_seen": 34,
       "new_found": 0,
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "zara-home": {
       "products_seen": 0,
       "new_found": 0,
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "hm-home": {
       "error": "HTTP Error 403: Forbidden",
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "brooklinen": {
       "products_seen": 21,
       "new_found": 0,
-      "checked_at": "2026-11-26T14:17:15+08:00",
-      "gone_count": 1
+      "checked_at": "2026-11-27T14:06:32+08:00"
     },
     "parachute": {
-      "products_seen": 406,
-      "new_found": 1,
-      "checked_at": "2026-11-26T14:17:15+08:00",
-      "gone_count": 8
+      "products_seen": 405,
+      "new_found": 11,
+      "checked_at": "2026-11-27T14:06:32+08:00",
+      "gone_count": 18
     },
     "quince": {
       "products_seen": 38,
       "new_found": 0,
-      "checked_at": "2026-11-26T14:17:15+08:00",
-      "gone_count": 3
+      "checked_at": "2026-11-27T14:06:32+08:00",
+      "gone_count": 1
     },
     "bed-threads": {
       "error": "HTTP Error 403: Forbidden",
-      "checked_at": "2026-11-26T14:17:15+08:00"
+      "checked_at": "2026-11-27T14:06:32+08:00"
     }
   },
   "sourcePolicy": {
